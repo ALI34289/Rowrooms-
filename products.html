@@ -3,9 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products - Electronics Showroom</title>
+    <meta name="description" content="Explore a wide range of the latest electronics at our showroom. TVs, refrigerators, washing machines, and more from top brands like Samsung, LG, and Sony.">
+    <meta name="keywords" content="electronics, showroom, TV, refrigerator, washing machine, Samsung, LG, Sony">
+    <title>Products - Modern Electronics Showroom</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .product-card .card-img-top {
+            transition: transform 0.3s ease-in-out;
+        }
+        .product-card:hover .card-img-top {
+            transform: scale(1.05);
+        }
+        .product-card:hover {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .price {
+            font-size: 1.25rem;
+        }
+        .ratings {
+            font-size: 0.9rem;
+        }
+        #scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            z-index: 100;
+        }
+    </style>
 </head>
 <body>
     <div id="header-placeholder"></div>
@@ -15,65 +42,288 @@
 
         <!-- Filters -->
         <div class="row mb-4">
-            <div class="col-md-4">
-                <select class="form-select">
-                    <option selected>Filter by Category</option>
-                    <option value="1">TVs</option>
-                    <option value="2">Refrigerators</option>
-                    <option value="3">Washing Machines</option>
-                </select>
+            <div class="col-md-5">
+                <h5>Category</h5>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="tv" id="cat-tv">
+                    <label class="form-check-label" for="cat-tv">TVs</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="refrigerator" id="cat-fridge">
+                    <label class="form-check-label" for="cat-fridge">Refrigerators</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="washing-machine" id="cat-wm">
+                    <label class="form-check-label" for="cat-wm">Washing Machines</label>
+                </div>
             </div>
-            <div class="col-md-4">
-                <select class="form-select">
-                    <option selected>Filter by Brand</option>
-                    <option value="1">Samsung</option>
-                    <option value="2">LG</option>
-                    <option value="3">Sony</option>
-                </select>
+            <div class="col-md-5">
+                <h5>Brand</h5>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="samsung" id="brand-samsung">
+                    <label class="form-check-label" for="brand-samsung">Samsung</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="lg" id="brand-lg">
+                    <label class="form-check-label" for="brand-lg">LG</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="sony" id="brand-sony">
+                    <label class="form-check-label" for="brand-sony">Sony</label>
+                </div>
+            </div>
+            <div class="col-md-2 d-flex align-items-end">
+                <button class="btn btn-secondary w-100" id="clear-filters">Clear Filters</button>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" id="product-grid">
             <!-- Product 1 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Product Name">
+            <div class="col-lg-4 col-md-6 mb-4 product-card" data-category="tv" data-brand="samsung">
+                <div class="card h-100">
+                    <span class="badge bg-danger position-absolute top-0 end-0 m-2">Hot</span>
+                    <img src="https://images.unsplash.com/photo-1593784917036-402de37469a4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="Samsung 4K Smart TV" loading="lazy">
                     <div class="card-body">
-                        <h5 class="card-title">4K Ultra HD TV</h5>
-                        <p class="card-text">A stunning 4K TV with vibrant colors and smart features.</p>
-                        <a href="#" class="btn btn-primary">View Details</a>
+                        <h5 class="card-title">Samsung 4K Smart TV</h5>
+                        <p class="card-text">A stunning 55-inch 4K TV with vibrant colors and smart features.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="ratings">
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star-half-alt text-warning"></i>
+                            </div>
+                            <span class="price fw-bold">$799</span>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal1">View Details</button>
                     </div>
                 </div>
             </div>
             <!-- Product 2 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Product Name">
+            <div class="col-lg-4 col-md-6 mb-4 product-card" data-category="refrigerator" data-brand="lg">
+                <div class="card h-100">
+                    <span class="badge bg-success position-absolute top-0 end-0 m-2">New</span>
+                    <img src="https://images.unsplash.com/photo-1617886903353-0c78a7f4b64e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="LG Smart Refrigerator" loading="lazy">
                     <div class="card-body">
-                        <h5 class="card-title">Energy-Efficient Refrigerator</h5>
-                        <p class="card-text">A spacious and energy-saving refrigerator for modern kitchens.</p>
-                        <a href="#" class="btn btn-primary">View Details</a>
+                        <h5 class="card-title">LG Smart Refrigerator</h5>
+                        <p class="card-text">A spacious and energy-saving smart refrigerator for modern kitchens.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="ratings">
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                            </div>
+                            <span class="price fw-bold">$1299</span>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal2">View Details</button>
                     </div>
                 </div>
             </div>
             <!-- Product 3 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Product Name">
+            <div class="col-lg-4 col-md-6 mb-4 product-card" data-category="washing-machine" data-brand="sony">
+                <div class="card h-100">
+                     <img src="https://images.unsplash.com/photo-1582735689369-7fe294a11425?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="Sony Front-Load Washer" loading="lazy">
                     <div class="card-body">
-                        <h5 class="card-title">Front-Load Washing Machine</h5>
+                        <h5 class="card-title">Sony Front-Load Washer</h5>
                         <p class="card-text">A high-performance washing machine with multiple wash programs.</p>
-                        <a href="#" class="btn btn-primary">View Details</a>
+                        <div class="d-flex justify-content-between align-items-center">
+                           <div class="ratings">
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star-half-alt text-warning"></i>
+                            </div>
+                            <span class="price fw-bold">$899</span>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center">
+                         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal3">View Details</button>
                     </div>
                 </div>
             </div>
-            <!-- Add more products as needed -->
+            <!-- Product 4 -->
+            <div class="col-lg-4 col-md-6 mb-4 product-card" data-category="tv" data-brand="sony">
+                <div class="card h-100">
+                     <span class="badge bg-success position-absolute top-0 end-0 m-2">New</span>
+                     <img src="https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="Sony Bravia 8K TV" loading="lazy">
+                    <div class="card-body">
+                        <h5 class="card-title">Sony Bravia 8K TV</h5>
+                        <p class="card-text">Experience the future of television with this stunning 8K display.</p>
+                         <div class="d-flex justify-content-between align-items-center">
+                            <div class="ratings">
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                            </div>
+                            <span class="price fw-bold">$2499</span>
+                        </div>
+                    </div>
+                     <div class="card-footer text-center">
+                         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal4">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <!-- Modal 1 -->
+    <div class="modal fade" id="productModal1" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Samsung 4K Smart TV</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1593784917036-402de37469a4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" class="img-fluid mb-3" alt="Samsung 4K Smart TV">
+                    <p><strong>Price:</strong> $799</p>
+                    <p>Experience crystal-clear picture quality with the Samsung 55-inch 4K Smart TV. Features include a powerful processor, smart hub for all your streaming needs, and a sleek, modern design.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 2 -->
+    <div class="modal fade" id="productModal2" tabindex="-1" aria-hidden="true">
+         <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">LG Smart Refrigerator</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1617886903353-0c78a7f4b64e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" class="img-fluid mb-3" alt="LG Smart Refrigerator">
+                    <p><strong>Price:</strong> $1299</p>
+                    <p>This LG Smart Refrigerator features a large capacity, an InstaView door-in-door, and is compatible with voice assistants. Keep your food fresher for longer.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 3 -->
+    <div class="modal fade" id="productModal3" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sony Front-Load Washer</h5>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1582735689369-7fe294a11425?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" class="img-fluid mb-3" alt="Sony Front-Load Washer">
+                    <p><strong>Price:</strong> $899</p>
+                    <p>This high-efficiency front-load washer from Sony offers multiple wash cycles, a large drum capacity, and quiet operation. Perfect for any family.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 4 -->
+    <div class="modal fade" id="productModal4" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                 <div class="modal-header">
+                    <h5 class="modal-title">Sony Bravia 8K TV</h5>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" class="img-fluid mb-3" alt="Sony Bravia 8K TV">
+                    <p><strong>Price:</strong> $2499</p>
+                    <p>The Sony Bravia 8K TV delivers breathtaking realism with its high contrast and vibrant colors. With its powerful processor, it upscales any content to near-8K quality.</p>
+                </div>
+            </div>
         </div>
     </div>
 
     <div id="footer-placeholder"></div>
 
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="btn btn-primary rounded-circle" style="display: none; position: fixed; bottom: 20px; right: 20px;">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Header and Footer loading logic from scripts.js
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    const headerPlaceholder = document.getElementById('header-placeholder');
+                    if (headerPlaceholder) {
+                        headerPlaceholder.innerHTML = data;
+                    }
+                });
+
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    const footerPlaceholder = document.getElementById('footer-placeholder');
+                    if (footerPlaceholder) {
+                        footerPlaceholder.innerHTML = data;
+                    }
+                });
+
+            // Product Filtering Logic
+            const filterCheckboxes = document.querySelectorAll('.form-check-input');
+            const productCards = document.querySelectorAll('.product-card');
+            const clearFiltersButton = document.getElementById('clear-filters');
+
+            function filterProducts() {
+                const selectedCategories = Array.from(document.querySelectorAll('input[id^="cat-"]:checked')).map(cb => cb.value);
+                const selectedBrands = Array.from(document.querySelectorAll('input[id^="brand-"]:checked')).map(cb => cb.value);
+
+                productCards.forEach(card => {
+                    const category = card.dataset.category;
+                    const brand = card.dataset.brand;
+
+                    const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(category);
+                    const brandMatch = selectedBrands.length === 0 || selectedBrands.includes(brand);
+
+                    if (categoryMatch && brandMatch) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            filterCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', filterProducts);
+            });
+
+            clearFiltersButton.addEventListener('click', () => {
+                filterCheckboxes.forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+                filterProducts();
+            });
+
+            // Scroll to Top Button Logic
+            const scrollToTopButton = document.getElementById('scroll-to-top');
+
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    scrollToTopButton.style.display = 'block';
+                } else {
+                    scrollToTopButton.style.display = 'none';
+                }
+            });
+
+            scrollToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
