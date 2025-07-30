@@ -340,3 +340,19 @@ const showComparison = () => {
     productsToCompare = [];
     compareCheckboxes.forEach(checkbox => checkbox.checked = false);
 };
+
+/**
+* Back to top button
+*/
+const backtotop = document.querySelector('.back-to-top')
+if (backtotop) {
+  const toggleBacktotop = () => {
+    if (window.scrollY > 100) {
+      backtotop.classList.add('active')
+    } else {
+      backtotop.classList.remove('active')
+    }
+  }
+  window.addEventListener('load', toggleBacktotop)
+  document.addEventListener('scroll', toggleBacktotop)
+}
