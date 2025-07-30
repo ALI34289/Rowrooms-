@@ -23,7 +23,9 @@
 
     <!-- Preloader -->
     <div id="preloader">
-        <div class="spinner"></div>
+        <div class="preloader-icon">
+            <i class="fas fa-bolt"></i>
+        </div>
     </div>
 
     <!-- Dark Mode Toggle -->
@@ -35,6 +37,24 @@
     <a href="https://wa.me/1234567890" target="_blank" class="whatsapp-fl-btn">
         <i class="fab fa-whatsapp"></i>
     </a>
+
+    <!-- Chat Assistant -->
+    <div class="chat-icon">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+    <div class="chat-box">
+        <div class="chat-header">
+            <h5>Chat with us</h5>
+            <button class="btn-close-chat">&times;</button>
+        </div>
+        <div class="chat-body">
+            <div class="chat-message bot">Hello! How can I help you today?</div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" placeholder="Type a message...">
+            <button class="btn-send"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
 
     <!-- Header -->
     <header class="sticky-top">
@@ -52,11 +72,38 @@
                         <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
                         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">🔒 Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" id="wishlist-btn">❤️ Wishlist</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <main>
         <!-- Hero Section -->
@@ -185,7 +232,12 @@
                                     <s class="text-muted">$799</s>
                                 </p>
                                 <p class="badge bg-success">37% OFF</p>
-                                <a href="#" class="btn btn-primary w-100">Buy Now</a>
+                                <div class="stock-status"></div>
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" value="" data-product-id="1">
+                                    <label class="form-check-label">Compare</label>
+                                </div>
+                                <a href="#" class="btn btn-primary w-100 mt-2">Buy Now</a>
                             </div>
                         </div>
                     </div>
@@ -200,7 +252,12 @@
                                     <s class="text-muted">$1199</s>
                                 </p>
                                 <p class="badge bg-success">25% OFF</p>
-                                <a href="#" class="btn btn-primary w-100">Enquire Now</a>
+                                <div class="stock-status"></div>
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" value="" data-product-id="2">
+                                    <label class="form-check-label">Compare</label>
+                                </div>
+                                <a href="#" class="btn btn-primary w-100 mt-2">Enquire Now</a>
                             </div>
                         </div>
                     </div>
@@ -215,13 +272,33 @@
                                     <s class="text-muted">$900</s>
                                 </p>
                                 <p class="badge bg-success">28% OFF</p>
-                                <a href="#" class="btn btn-primary w-100">Buy Now</a>
+                                <div class="stock-status"></div>
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" value="" data-product-id="3">
+                                    <label class="form-check-label">Compare</label>
+                                </div>
+                                <a href="#" class="btn btn-primary w-100 mt-2">Buy Now</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+    <!-- Comparison Modal -->
+    <div class="modal fade" id="compareModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Product Comparison</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="compare-modal-body">
+                    <!-- Comparison content will be injected here -->
+                </div>
+            </div>
+        </div>
+    </div>
 
         <!-- Why Choose Us -->
         <section id="why-choose-us" class="py-5 reveal">
@@ -286,6 +363,35 @@
             </div>
         </section>
 
+        <!-- Blog Section -->
+        <section id="blog" class="py-5 bg-light reveal">
+            <div class="container">
+                <h2 class="text-center mb-5">Latest Tips & Tricks</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <img src="https://images.unsplash.com/photo-1571893542736-33da529de8e1?w=500&auto=format&fit=crop" class="card-img-top" alt="Blog Post 1">
+                            <div class="card-body">
+                                <h5 class="card-title">How to choose the right AC for your room</h5>
+                                <p class="card-text">Choosing the right AC is crucial for comfort and energy savings. This guide will help you understand the key factors to consider before making a purchase.</p>
+                                <a href="#" class="btn btn-primary">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <img src="https://images.unsplash.com/photo-1606220858122-ab1281299945?w=500&auto=format&fit=crop" class="card-img-top" alt="Blog Post 2">
+                            <div class="card-body">
+                                <h5 class="card-title">Top 5 budget-friendly Smart TVs in 2025</h5>
+                                <p class="card-text">You don't have to break the bank to get a great Smart TV. Here are our top picks for budget-friendly options that don't compromise on features.</p>
+                                <a href="#" class="btn btn-primary">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Customer Testimonials -->
         <section id="testimonials" class="py-5 reveal">
             <div class="container">
@@ -297,6 +403,7 @@
                             <div class="testimonial-card text-center">
                                 <img src="https://i.pravatar.cc/150?img=1" class="rounded-circle mb-3" alt="Customer 1">
                                 <h5>John Doe</h5>
+                                <p class="text-muted">Purchased: Smart LED TV 55"</p>
                                 <div class="text-warning mb-2">
                                     <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                                 </div>
@@ -308,6 +415,7 @@
                             <div class="testimonial-card text-center">
                                 <img src="https://i.pravatar.cc/150?img=2" class="rounded-circle mb-3" alt="Customer 2">
                                 <h5>Jane Smith</h5>
+                                <p class="text-muted">Purchased: Modern Refrigerator</p>
                                 <div class="text-warning mb-2">
                                     <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                                 </div>

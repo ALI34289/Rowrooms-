@@ -96,3 +96,148 @@ const reveal = () => {
 };
 
 window.addEventListener('scroll', reveal);
+
+// Chat Assistant
+const chatIcon = document.querySelector('.chat-icon');
+const chatBox = document.querySelector('.chat-box');
+const closeChatBtn = document.querySelector('.btn-close-chat');
+const sendChatBtn = document.querySelector('.btn-send');
+const chatInput = document.querySelector('.chat-footer input');
+const chatBody = document.querySelector('.chat-body');
+
+chatIcon.addEventListener('click', () => {
+    chatBox.style.display = 'flex';
+});
+
+closeChatBtn.addEventListener('click', () => {
+    chatBox.style.display = 'none';
+});
+
+sendChatBtn.addEventListener('click', () => {
+    const userInput = chatInput.value;
+    if (userInput.trim() === '') return;
+
+    appendMessage(userInput, 'user');
+    chatInput.value = '';
+
+    setTimeout(() => {
+        botResponse(userInput);
+    }, 1000);
+});
+
+const appendMessage = (message, sender) => {
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('chat-message', sender);
+    messageDiv.innerText = message;
+    chatBody.appendChild(messageDiv);
+    chatBody.scrollTop = chatBody.scrollHeight;
+};
+
+const botResponse = (userInput) => {
+    let botMessage = "I'm not sure how to answer that. Can you ask something else?";
+    userInput = userInput.toLowerCase();
+
+    if (userInput.includes('tv')) {
+        botMessage = 'We have a wide range of TVs. Are you looking for a specific brand or size?';
+    } else if (userInput.includes('fridge') || userInput.includes('refrigerator')) {
+        botMessage = 'Our refrigerators come with the latest cooling technology. Do you need a single door or double door?';
+    } else if (userInput.includes('ac') || userInput.includes('air conditioner')) {
+        botMessage = 'We have both split and window ACs. What is your room size?';
+    } else if (userInput.includes('offer') || userInput.includes('deal')) {
+        botMessage = 'You can check out our latest offers in the "Top Deals of the Day" section!';
+    } else if (userInput.includes('hello') || userInput.includes('hi')) {
+        botMessage = 'Hello there! How can I assist you today?';
+    }
+
+    appendMessage(botMessage, 'bot');
+};
+
+// Live Stock Status
+const stockStatuses = document.querySelectorAll('.stock-status');
+
+stockStatuses.forEach(status => {
+    const isAvailable = Math.random() > 0.3; // 70% chance of being in stock
+    if (isAvailable) {
+        status.innerHTML = '<span class="badge bg-success">✅ In Stock</span>';
+    } else {
+        status.innerHTML = '<span class="badge bg-danger">❌ Out of Stock</span>';
+    }
+});
+
+// Wishlist Toggle
+const wishlistBtn = document.getElementById('wishlist-btn');
+let isWished = false;
+
+wishlistBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    isWished = !isWished;
+    if (isWished) {
+        wishlistBtn.innerHTML = '💖 Wishlisted';
+        wishlistBtn.classList.add('text-danger');
+    } else {
+        wishlistBtn.innerHTML = '❤️ Wishlist';
+        wishlistBtn.classList.remove('text-danger');
+    }
+});
+
+// Product Comparison
+const compareCheckboxes = document.querySelectorAll('.form-check-input');
+const compareModalBody = document.getElementById('compare-modal-body');
+const compareModal = new bootstrap.Modal(document.getElementById('compareModal'));
+let productsToCompare = [];
+
+const productData = {
+    '1': { name: 'Smart LED TV 55"', price: '$499', brand: 'Brand A', rating: '4.5/5', availability: 'In Stock' },
+    '2': { name: 'Modern Refrigerator', price: '$899', brand: 'Brand B', rating: '4.7/5', availability: 'In Stock' },
+    '3': { name: 'Split Air Conditioner', price: '$650', brand: 'Brand C', rating: '4.6/5', availability: 'Out of Stock' }
+};
+
+compareCheckboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', () => {
+        const productId = checkbox.getAttribute('data-product-id');
+        if (checkbox.checked) {
+            productsToCompare.push(productId);
+        } else {
+            productsToCompare = productsToCompare.filter(id => id !== productId);
+        }
+
+        if (productsToCompare.length === 2) {
+            showComparison();
+        }
+    });
+});
+
+const showComparison = () => {
+    const product1 = productData[productsToCompare[0]];
+    const product2 = productData[productsToCompare[1]];
+
+    const comparisonHtml = `
+        <div class="row">
+            <div class="col-md-6">
+                <h4>${product1.name}</h4>
+                <ul class="list-group">
+                    <li class="list-group-item">Price: ${product1.price}</li>
+                    <li class="list-group-item">Brand: ${product1.brand}</li>
+                    <li class="list-group-item">Rating: ${product1.rating}</li>
+                    <li class="list-group-item">Availability: ${product1.availability}</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h4>${product2.name}</h4>
+                <ul class="list-group">
+                    <li class="list-group-item">Price: ${product2.price}</li>
+                    <li class="list-group-item">Brand: ${product2.brand}</li>
+                    <li class="list-group-item">Rating: ${product2.rating}</li>
+                    <li class="list-group-item">Availability: ${product2.availability}</li>
+                </ul>
+            </div>
+        </div>
+    `;
+
+    compareModalBody.innerHTML = comparisonHtml;
+    compareModal.show();
+
+    // Reset checkboxes
+    productsToCompare = [];
+    compareCheckboxes.forEach(checkbox => checkbox.checked = false);
+};
