@@ -22,7 +22,41 @@
     <div id="header-placeholder"></div>
 
     <div class="container mt-5">
-        <div class="text-center mb-5">
+        <!-- Hero Carousel -->
+        <header id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active" style="background-image: url('https://via.placeholder.com/1920x600?text=Offer+1'); height: 400px;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1>Welcome to XYZ Electronics Showroom</h1>
+                        <p>Your one-stop shop for the best deals on the latest electronics.</p>
+                        <a href="offers.html" class="btn btn-primary">View All Offers</a>
+                    </div>
+                </div>
+                <div class="carousel-item" style="background-image: url('https://via.placeholder.com/1920x600?text=Offer+2'); height: 400px;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>No-Cost EMI on Appliances</h5>
+                        <p>Upgrade your home with our easy payment plans.</p>
+                        <a href="offers.html" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+                <div class="carousel-item" style="background-image: url('https://via.placeholder.com/1920x600?text=Offer+3'); height: 400px;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Exchange Bonus on Smartphones</h5>
+                        <p>Get the best value for your old phone.</p>
+                        <a href="offers.html" class="btn btn-primary">Explore Now</a>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+        </header>
+
+        <div class="text-center mb-5 mt-5">
             <h1 class="display-5 fw-bold">Deals & Offers</h1>
             <p class="lead text-muted">Don't miss out on our exciting deals and discounts!</p>
         </div>
