@@ -16,6 +16,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -84,6 +86,12 @@
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                         <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">🔒 Login</a></li>
                         <li class="nav-item"><a class="nav-link" href="#" id="wishlist-btn">❤️ Wishlist</a></li>
+                        <li class="nav-item">
+                            <div class="form-check form-switch mt-2 ms-3">
+                                <input class="form-check-input" type="checkbox" id="language-toggle">
+                                <label class="form-check-label" for="language-toggle">EN/HI</label>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -117,12 +125,20 @@
 
     <main>
         <!-- Hero Section -->
-        <section id="home" class="hero-section text-white text-center d-flex justify-content-center align-items-center">
+        <section id="home" class="hero-section text-white text-center d-flex justify-content-center align-items-center position-relative">
+            <div class="trusted-ribbon">Trusted by 10K+ customers</div>
             <div class="container">
-                <h1 class="display-3">Experience the Future of Electronics</h1>
-                <p class="lead">Top Brands, Unbeatable Prices, and Expert Service</p>
-                <a href="#products" class="btn btn-primary btn-lg me-2">Shop Now</a>
-                <a href="product.html" class="btn btn-outline-light btn-lg">View Product Page</a>
+                <div class="row align-items-center">
+                    <div class="col-md-7">
+                        <h1 class="display-3">Experience the Future of Electronics</h1>
+                        <p class="lead">Top Brands, Unbeatable Prices, and Expert Service</p>
+                        <a href="#products" class="btn btn-primary btn-lg me-2">Shop Now</a>
+                        <a href="product.html" class="btn btn-outline-light btn-lg">View Product Page</a>
+                    </div>
+                    <div class="col-md-5">
+                        <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2Y0NjE5Zjk3ZGM5YjQ5YjM3ZDI5YjM3ZDI5YjM3ZDI5YjM3ZDI5YjM3ZDI5YjM3/3o7TKSjRrfwVpBQU8M/giphy.gif" class="img-fluid" alt="Unboxing Animation">
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -136,7 +152,7 @@
         </div>
 
         <!-- Featured Categories -->
-        <section id="categories" class="py-5 reveal">
+        <section id="categories" class="py-5" data-aos="fade-up">
             <div class="container text-center">
                 <h2 class="mb-5">Featured Categories</h2>
                 <div class="row">
@@ -213,7 +229,7 @@
         </section>
 
         <!-- Top Deals of the Day -->
-        <section id="products" class="py-5 bg-light reveal">
+        <section id="products" class="py-5 bg-light" data-aos="fade-left">
             <div class="container">
                 <div class="text-center mb-5">
                     <h2>Top Deals of the Day</h2>
@@ -311,7 +327,7 @@
     </div>
 
         <!-- Why Choose Us -->
-        <section id="why-choose-us" class="py-5 reveal">
+        <section id="why-choose-us" class="py-5" data-aos="fade-right">
             <div class="container text-center">
                 <h2 class="mb-5">Why Choose Us</h2>
                 <div class="row">
@@ -403,7 +419,7 @@
         </section>
 
         <!-- Customer Testimonials -->
-        <section id="testimonials" class="py-5 reveal">
+        <section id="testimonials" class="py-5" data-aos="zoom-in">
             <div class="container">
                 <h2 class="text-center mb-5">What Our Customers Say</h2>
                 <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -444,7 +460,7 @@
         </section>
 
         <!-- Store Locator -->
-        <section id="location" class="py-5 bg-light reveal">
+        <section id="location" class="py-5 bg-light" data-aos="fade-up-right">
             <div class="container">
                 <h2 class="text-center mb-5">Store Locator</h2>
                 <div class="row justify-content-center mb-4">
@@ -485,7 +501,7 @@
         </section>
 
         <!-- Newsletter Subscription -->
-        <section id="newsletter" class="py-5 reveal">
+        <section id="newsletter" class="py-5" data-aos="fade-down">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-8 text-center">
@@ -640,12 +656,25 @@
                         </ul>
                     </div>
                 </div>
+                <div class="row mt-4">
+                    <div class="col text-center">
+                        <i class="fab fa-cc-visa fa-2x mx-2"></i>
+                        <i class="fab fa-google-pay fa-2x mx-2"></i>
+                        <i class="fab fa-paypal fa-2x mx-2"></i>
+                        <i class="fab fa-cc-mastercard fa-2x mx-2"></i>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
 
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
     <!-- Custom JS -->
     <script src="script.js"></script>
 </body>
