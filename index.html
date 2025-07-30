@@ -56,6 +56,16 @@
         </div>
     </div>
 
+    <!-- Social Proof Popup -->
+    <div id="social-proof-popup" class="toast align-items-center text-white bg-dark border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                <!-- Popup message will be injected here -->
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+
     <!-- Header -->
     <header class="sticky-top">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -433,15 +443,42 @@
             </div>
         </section>
 
-        <!-- Store Location Map -->
+        <!-- Store Locator -->
         <section id="location" class="py-5 bg-light reveal">
             <div class="container">
-                <h2 class="text-center mb-5">Our Location</h2>
+                <h2 class="text-center mb-5">Store Locator</h2>
+                <div class="row justify-content-center mb-4">
+                    <div class="col-md-6">
+                        <select id="location-select" class="form-select">
+                            <option value="melbourne">Melbourne</option>
+                            <option value="sydney">Sydney</option>
+                            <option value="brisbane">Brisbane</option>
+                        </select>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="map-responsive">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.086432396585!2d144.9537363159042!3d-37.81720997975179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0x5045675218ce7e0!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sus!4v1687530901211!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe id="map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.086432396585!2d144.9537363159042!3d-37.81720997975179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0x5045675218ce7e0!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sus!4v1687530901211!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customer Gallery -->
+        <section id="customer-gallery" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5">Customer Gallery</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <img src="https://images.unsplash.com/photo-1550009158-94ae76552485?w=500&auto=format&fit=crop" class="img-fluid rounded" alt="Customer Photo 1">
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <img src="https://images.unsplash.com/photo-1583947215259-38e34be8751f?w=500&auto=format&fit=crop" class="img-fluid rounded" alt="Customer Photo 2">
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <img src="https://images.unsplash.com/photo-1567588336025-1a2210731a5a?w=500&auto=format&fit=crop" class="img-fluid rounded" alt="Customer Photo 3">
                     </div>
                 </div>
             </div>
@@ -460,6 +497,83 @@
                                 <button class="btn btn-primary" type="submit">Subscribe</button>
                             </div>
                         </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EMI Calculator Section -->
+        <section id="emi-calculator" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5">EMI Calculator</h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label for="amount" class="form-label">Loan Amount ($)</label>
+                                    <input type="number" class="form-control" id="amount" value="50000">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="interest" class="form-label">Interest Rate (%)</label>
+                                    <input type="number" class="form-control" id="interest" value="10">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="tenure" class="form-label">Tenure (Months)</label>
+                                    <input type="number" class="form-control" id="tenure" value="12">
+                                </div>
+                                <button id="calculate-emi" class="btn btn-primary">Calculate EMI</button>
+                                <div id="emi-result" class="mt-4 fs-4"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5">Frequently Asked Questions</h2>
+                <div class="accordion" id="faqAccordion">
+                    <!-- FAQ Item 1 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                What is the warranty on your products?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                All our products come with a standard 1-year brand warranty. You can also purchase an extended warranty for up to 3 years.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 2 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                Do you offer free shipping?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Yes, we offer free shipping on all orders above $100. For orders below $100, a nominal shipping fee is charged.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 3 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                What is your return policy?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                We have a 30-day return policy for all our products. If you are not satisfied with your purchase, you can return it for a full refund.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

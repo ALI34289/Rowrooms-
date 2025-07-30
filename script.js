@@ -180,6 +180,63 @@ wishlistBtn.addEventListener('click', (e) => {
     }
 });
 
+// EMI Calculator
+const calculateEmiBtn = document.getElementById('calculate-emi');
+if (calculateEmiBtn) {
+    calculateEmiBtn.addEventListener('click', () => {
+        const amount = document.getElementById('amount').value;
+        const interest = document.getElementById('interest').value;
+        const tenure = document.getElementById('tenure').value;
+
+        const principal = parseFloat(amount);
+        const rate = parseFloat(interest) / 100 / 12;
+        const n = parseFloat(tenure);
+
+        if (principal && rate && n) {
+            const emi = (principal * rate * Math.pow(1 + rate, n)) / (Math.pow(1 + rate, n) - 1);
+            document.getElementById('emi-result').innerHTML = `Your monthly EMI is: <strong>$${emi.toFixed(2)}</strong>`;
+        } else {
+            document.getElementById('emi-result').innerHTML = 'Please enter valid inputs.';
+        }
+    });
+}
+
+// Social Proof Popups
+const socialProofPopup = document.getElementById('social-proof-popup');
+if (socialProofPopup) {
+    const toast = new bootstrap.Toast(socialProofPopup);
+    const messages = [
+        'A customer from New York just bought a Smart LED TV.',
+        'Someone from California just purchased a Modern Refrigerator.',
+        'A customer from Texas just bought a Split Air Conditioner.',
+        'Someone from Florida just got a new Gaming Laptop.'
+    ];
+
+    setInterval(() => {
+        const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+        socialProofPopup.querySelector('.toast-body').textContent = randomMessage;
+        toast.show();
+    }, 10000); // Show a popup every 10 seconds
+}
+
+// Store Locator
+const locationSelect = document.getElementById('location-select');
+if (locationSelect) {
+    const mapIframe = document.getElementById('map-iframe');
+    const locations = {
+        melbourne: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.086432396585!2d144.9537363159042!3d-37.81720997975179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0x5045675218ce7e0!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sus!4v1687530901211!5m2!1sen!2sus',
+        sydney: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.099026333285!2d151.2069138158204!3d-33.8732159806525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae401e8b9a23%3A0x5017d681632a850!2sSydney%20NSW%2C%20Australia!5e0!3m2!1sen!2sus!4v1687531033336!5m2!1sen!2sus',
+        brisbane: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3540.132929259185!2d153.0251235156914!3d-27.46977198289598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b915a0c1f8a6a4f%3A0x502a35af3de8460!2sBrisbane%20QLD%2C%20Australia!5e0!3m2!1sen!2sus!4v1687531065432!5m2!1sen!2sus'
+    };
+
+    locationSelect.addEventListener('change', () => {
+        const selectedLocation = locationSelect.value;
+        if (locations[selectedLocation]) {
+            mapIframe.src = locations[selectedLocation];
+        }
+    });
+}
+
 // Product Comparison
 const compareCheckboxes = document.querySelectorAll('.form-check-input');
 const compareModalBody = document.getElementById('compare-modal-body');
