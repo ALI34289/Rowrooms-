@@ -3,7 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Electronics Showroom</title>
+    <title>Welcome to XYZ Electronics Showroom | Best Deals on Electronics</title>
+    <meta name="description" content="XYZ Electronics Showroom offers the best deals on TVs, refrigerators, washing machines, and more. Your trusted local electronics store.">
+    <meta name="keywords" content="electronics showroom, best electronics deals, local electronics store, tv shop near me">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Welcome to XYZ Electronics Showroom">
+    <meta property="og:description" content="The best deals on the latest electronics.">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630?text=XYZ+Electronics">
+    <meta property="og:url" content="https://yourwebsite.com/index.html">
+    <meta name="theme-color" content="#000000">
+    <link rel="manifest" href="manifest.json">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -21,9 +32,9 @@
         <div class="carousel-inner">
             <div class="carousel-item active" style="background-image: url('https://via.placeholder.com/1920x600?text=Offer+1'); height: 400px;">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Flat 40% Off on TVs</h5>
-                    <p>India's Trusted Electronics Showroom. The best deals on the latest tech.</p>
-                    <a href="offers.html" class="btn btn-primary">View Offer</a>
+                    <h1>Welcome to XYZ Electronics Showroom</h1>
+                    <p>Your one-stop shop for the best deals on the latest electronics.</p>
+                    <a href="offers.html" class="btn btn-primary">View All Offers</a>
                 </div>
             </div>
             <div class="carousel-item" style="background-image: url('https://via.placeholder.com/1920x600?text=Offer+2'); height: 400px;">
@@ -45,13 +56,6 @@
         <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
     </header>
 
-    <!-- Marquee for breaking deals -->
-    <div class="bg-dark text-white">
-        <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
-            Special offer: Free installation on all ACs until the end of this month! &nbsp; | &nbsp; Diwali sale ends in <span id="countdown-timer"></span>!
-        </marquee>
-    </div>
-
     <div class="container mt-5">
         <!-- Featured Categories -->
         <section class="py-5 text-center">
@@ -63,6 +67,29 @@
                 <div class="col-lg-3 col-md-6 mb-4"><a href="products-v2.html?category=ac" class="text-decoration-none"><div class="card h-100"><div class="card-body"><i class="fas fa-wind fa-3x text-primary mb-3"></i><h5 class="card-title">ACs</h5></div></div></a></div>
             </div>
         </section>
+
+        <!-- Deals of the Day -->
+        <section class="py-5">
+            <h2 class="text-center mb-4">Deals of the Day</h2>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100"><img src="https://via.placeholder.com/300x200?text=Deal+1" class="card-img-top" alt="Deal 1"><div class="card-body"><h5>Smart TV 50% Off</h5><p>Limited time offer!</p></div></div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100"><img src="https://via.placeholder.com/300x200?text=Deal+2" class="card-img-top" alt="Deal 2"><div class="card-body"><h5>AC at $500</h5><p>Cool deals for summer.</p></div></div>
+                </div>
+                <div class="col-md-12 col-lg-4 mb-4">
+                    <div class="card h-100"><img src="https://via.placeholder.com/300x200?text=Deal+3" class="card-img-top" alt="Deal 3"><div class="card-body"><h5>Free Microwave with Fridge</h5><p>Combo offer.</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marquee for breaking deals -->
+        <div class="bg-dark text-white">
+            <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+                Special offer: Free installation on all ACs until the end of this month! &nbsp; | &nbsp; Diwali sale ends in <span id="countdown-timer"></span>!
+            </marquee>
+        </div>
 
         <!-- Why Choose Us? -->
         <section class="py-5 bg-light">
@@ -76,29 +103,24 @@
             </div>
         </section>
 
-        <!-- Mid-Page CTA -->
-        <section class="py-5 text-center">
-            <div class="container">
-                <h2 class="display-6">Ready to Find Your Next Gadget?</h2>
-                <p class="lead">Browse our extensive collection of high-quality electronics.</p>
-                <a href="products-v2.html" class="btn btn-primary btn-lg">Explore All Products</a>
-            </div>
+        <!-- Store Location -->
+        <section class="py-5">
+            <h2 class="text-center mb-4">Our Location</h2>
+            <!-- Placeholder for Map -->
         </section>
 
-        <!-- Top Offers / Bumper Deals -->
-        <section class="py-5">
-            <h2 class="text-center mb-4">Top Offers & Bumper Deals</h2>
-            <div class="row">
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="card text-center"><img src="https://via.placeholder.com/100x50?text=Sony" class="card-img-top w-50 mx-auto mt-3" alt="Sony Logo"><div class="card-body"><h5>Flat 30% Off on Sony TVs</h5><p>Use code: SONY30</p></div></div>
+        <!-- Spin the Wheel Game -->
+        <section class="py-5 text-center">
+            <h2 class="mb-4">Spin to Win!</h2>
+            <p>Try your luck to win an exclusive discount coupon.</p>
+            <div class="wheel-container" style="position: relative; width: 300px; height: 300px; margin: auto;">
+                <div class="wheel" style="width: 100%; height: 100%; border-radius: 50%; border: 5px solid #333; transition: transform 4s ease-out;">
+                    <!-- Segments of the wheel -->
                 </div>
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="card text-center"><img src="https://via.placeholder.com/100x50?text=Samsung" class="card-img-top w-50 mx-auto mt-3" alt="Samsung Logo"><div class="card-body"><h5>Free Soundbar with Samsung TVs</h5><p>On select models</p></div></div>
-                </div>
-                <div class="col-md-12 col-lg-4 mb-4">
-                    <div class="card text-center"><i class="fas fa-sync-alt fa-3x text-primary my-3"></i><div class="card-body"><h5>Exchange Bonus on Old Appliances</h5><p>Up to $100 off</p></div></div>
-                </div>
+                <div class="arrow" style="position: absolute; top: -20px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 15px solid transparent; border-right: 15px solid transparent; border-bottom: 30px solid red;"></div>
             </div>
+            <button id="spin-btn" class="btn btn-warning btn-lg mt-4">Spin Now!</button>
+            <div id="coupon-result" class="mt-3 fs-5"></div>
         </section>
 
         <!-- Customer Review Teaser -->
@@ -145,6 +167,26 @@
         document.getElementById('countdown-timer').innerText = `${textDay}d ${textHour}h ${textMinute}m ${textSecond}s`;
     };
     setInterval(countdown, 1000);
+
+    // Spin the Wheel Logic
+    const spinBtn = document.getElementById('spin-btn');
+    const wheel = document.querySelector('.wheel');
+    const couponResult = document.getElementById('coupon-result');
+    const coupons = ['10% OFF', '20% OFF', 'TRY AGAIN', '5% OFF', '15% OFF', 'TRY AGAIN'];
+
+    spinBtn.addEventListener('click', () => {
+        spinBtn.disabled = true;
+        couponResult.innerText = '';
+        const randomDegree = Math.floor(Math.random() * 360) + 360 * 5; // Spin at least 5 times
+        wheel.style.transform = `rotate(${randomDegree}deg)`;
+
+        setTimeout(() => {
+            const finalDegree = randomDegree % 360;
+            const segment = Math.floor(finalDegree / (360 / coupons.length));
+            couponResult.innerText = `Congratulations! You won: ${coupons[segment]}`;
+            spinBtn.disabled = false;
+        }, 4000); // Corresponds to the transition duration
+    });
     </script>
     <!-- Tawk.to Live Chat Placeholder -->
     <!-- Start of Tawk.to Script -->
@@ -162,5 +204,10 @@
     </script>
     -->
     <!--End of Tawk.to Script-->
+
+    <!-- AI Chat Assistant Placeholder -->
+    <div style="position: fixed; bottom: 100px; right: 20px; z-index: 1050;">
+        <button class="btn btn-info rounded-circle" style="width: 55px; height: 55px;"><i class="fas fa-robot"></i></button>
+    </div>
 </body>
 </html>

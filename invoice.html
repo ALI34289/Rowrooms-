@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GST Invoice Generator - Electronics Showroom</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">GST Invoice Generator</h1>
+        <form id="invoice-form" class="row g-3">
+            <div class="col-md-6"><label class="form-label">Customer Name</label><input type="text" class="form-control" id="customer-name" required></div>
+            <div class="col-md-6"><label class="form-label">Customer Email</label><input type="email" class="form-control" id="customer-email" required></div>
+            <div class="col-12"><label class="form-label">Product Name</label><input type="text" class="form-control" id="product-name" required></div>
+            <div class="col-md-6"><label class="form-label">Price</label><input type="number" class="form-control" id="price" required></div>
+            <div class="col-md-6"><label class="form-label">GST Rate (%)</label><input type="number" class="form-control" id="gst-rate" value="18" required></div>
+            <div class="col-12"><button type="submit" class="btn btn-primary">Generate Invoice</button></div>
+        </form>
+    </div>
+
+    <div id="footer-placeholder"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts.js"></script>
+    <script>
+        document.getElementById('invoice-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            const customerName = document.getElementById('customer-name').value;
+            const customerEmail = document.getElementById('customer-email').value;
+            const productName = document.getElementById('product-name').value;
+            const price = parseFloat(document.getElementById('price').value);
+            const gstRate = parseFloat(document.getElementById('gst-rate').value);
+            const gstAmount = price * (gstRate / 100);
+            const totalPrice = price + gstAmount;
+
+            doc.text("GST Invoice", 20, 20);
+            doc.text(`Customer: ${customerName}`, 20, 30);
+            doc.text(`Email: ${customerEmail}`, 20, 40);
+            doc.text("--------------------", 20, 50);
+            doc.text(`Product: ${productName}`, 20, 60);
+            doc.text(`Price: $${price.toFixed(2)}`, 20, 70);
+            doc.text(`GST @ ${gstRate}%: $${gstAmount.toFixed(2)}`, 20, 80);
+            doc.text(`Total Price: $${totalPrice.toFixed(2)}`, 20, 90);
+
+            doc.save('invoice.pdf');
+        });
+    </script>
+</body>
+</html>
