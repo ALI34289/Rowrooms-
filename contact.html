@@ -11,35 +11,41 @@
     <div id="header-placeholder"></div>
 
     <div class="container mt-5">
-        <h1 class="text-center mb-4">Contact Us</h1>
-        <div class="row">
-            <div class="col-md-6">
-                <h3>Get in Touch</h3>
+        <div class="text-center mb-5">
+            <h1 class="display-5 fw-bold">Get in Touch</h1>
+            <p class="lead text-muted">We'd love to hear from you. Please reach out with any questions or inquiries.</p>
+        </div>
+
+        <div class="row g-5">
+            <div class="col-lg-6">
+                <h3 class="mb-4">Contact Information</h3>
+                <p><i class="fas fa-map-marker-alt fa-fw me-2"></i><strong>Address:</strong> 123 Electronics Street, Tech City, 12345</p>
+                <p><i class="fas fa-phone fa-fw me-2"></i><strong>Phone:</strong> <a href="tel:+1234567890">(123) 456-7890</a></p>
+                <p><i class="fab fa-whatsapp fa-fw me-2"></i><strong>WhatsApp:</strong> <a href="https://wa.me/1234567890" target="_blank">(123) 456-7890</a></p>
+                <p><i class="fas fa-envelope fa-fw me-2"></i><strong>Email:</strong> <a href="mailto:contact@showroom.com">contact@showroom.com</a></p>
+
+                <h3 class="mt-5 mb-4">Our Location</h3>
+                <div class="ratio ratio-16x9">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019438938714!2d144.9537353159042!3d-37.81720974202123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c2b349649%3A0xb6899234e561db11!2sFederation+Square!5e0!3m2!1sen!2sau!4v1541457313502" allowfullscreen="" loading="lazy" class="rounded border"></iframe>
+                </div>
+            </div>
+            <div class="col-lg-6 bg-light p-4 rounded">
+                <h3 class="mb-4">Send Us a Message</h3>
                 <form>
                     <div class="mb-3">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input type="text" class="form-control" id="name" required>
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email">
+                        <label for="email" class="form-label">Your Email</label>
+                        <input type="email" class="form-control" id="email" required>
                     </div>
                     <div class="mb-3">
                         <label for="message" class="form-label">Message</label>
-                        <textarea class="form-control" id="message" rows="3"></textarea>
+                        <textarea class="form-control" id="message" rows="5" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary w-100">Submit</button>
                 </form>
-            </div>
-            <div class="col-md-6">
-                <h3>Our Location</h3>
-                <!-- Google Maps Embed Placeholder -->
-                <div class="text-center" style="height: 200px; background-color: #f2f2f2; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center;">
-                    <p>Google Map Placeholder</p>
-                </div>
-                <p><strong>Address:</strong> 123 Electronics Street, Tech City, 12345</p>
-                <p><strong>Phone:</strong> (123) 456-7890</p>
-                <p><strong>Email:</strong> contact@showroom.com</p>
             </div>
         </div>
     </div>

@@ -118,11 +118,20 @@
                 <div class="form-check"><input class="form-check-input" type="checkbox" value="lg" id="brand-lg"><label class="form-check-label" for="brand-lg">LG</label></div>
                 <div class="form-check"><input class="form-check-input" type="checkbox" value="sony" id="brand-sony"><label class="form-check-label" for="brand-sony">Sony</label></div>
             </div>
-            <div class="col-lg-4 col-md-8 mb-3">
+            <div class="col-lg-3 col-md-6 mb-3">
+                <h5>Price Range</h5>
+                <select class="form-select" id="price-filter">
+                    <option value="all" selected>All Prices</option>
+                    <option value="0-1000">$0 - $1000</option>
+                    <option value="1001-2000">$1001 - $2000</option>
+                    <option value="2001-3000">$2001+</option>
+                </select>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-3">
                 <h5>Search</h5>
                 <input type="text" class="form-control" id="search-bar" placeholder="Search by product name...">
             </div>
-            <div class="col-lg-2 col-md-4 mb-3 d-flex align-items-end">
+            <div class="col-lg-2 col-md-12 mb-3 d-flex align-items-end">
                 <button class="btn btn-secondary w-100" id="clear-filters">Clear Filters</button>
             </div>
         </div>
@@ -131,7 +140,7 @@
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="product-grid">
 
             <!-- Product 1: Samsung TV -->
-            <div class="col product-card" data-category="tv" data-brand="samsung">
+            <div class="col product-card" data-category="tv" data-brand="samsung" data-price="799">
                 <div class="card h-100 shadow-sm">
                     <span class="badge bg-danger position-absolute top-0 end-0 m-2">Hot</span>
                     <img src="https://images.unsplash.com/photo-1593784917036-402de37469a4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="Samsung QLED 4K Smart TV" loading="lazy">
@@ -155,7 +164,7 @@
             </div>
 
             <!-- Product 2: LG Refrigerator -->
-            <div class="col product-card" data-category="refrigerator" data-brand="lg">
+            <div class="col product-card" data-category="refrigerator" data-brand="lg" data-price="1299">
                 <div class="card h-100 shadow-sm">
                     <span class="badge bg-success position-absolute top-0 end-0 m-2">New</span>
                     <img src="https://images.unsplash.com/photo-1617886903353-0c78a7f4b64e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="LG InstaView Smart Refrigerator" loading="lazy">
@@ -179,8 +188,9 @@
             </div>
 
             <!-- Product 3: Sony Washing Machine -->
-            <div class="col product-card" data-category="washing-machine" data-brand="sony">
+            <div class="col product-card" data-category="washing-machine" data-brand="sony" data-price="899">
                 <div class="card h-100 shadow-sm">
+                    <span class="badge bg-info position-absolute top-0 end-0 m-2">Best Seller</span>
                     <img src="https://images.unsplash.com/photo-1582735689369-7fe294a11425?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="Sony Smart Washing Machine" loading="lazy">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Sony Smart Washing Machine</h5>
@@ -413,17 +423,31 @@
                 const searchQuery = searchBar.value.toLowerCase();
                 const selectedCategories = Array.from(document.querySelectorAll('input[id^="cat-"]:checked')).map(cb => cb.value);
                 const selectedBrands = Array.from(document.querySelectorAll('input[id^="brand-"]:checked')).map(cb => cb.value);
+                const selectedPriceRange = document.getElementById('price-filter').value;
 
                 productCards.forEach(card => {
                     const title = card.querySelector('.card-title').textContent.toLowerCase();
                     const category = card.dataset.category;
                     const brand = card.dataset.brand;
+                    const price = parseInt(card.dataset.price, 10);
 
                     const searchMatch = title.includes(searchQuery);
                     const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(category);
                     const brandMatch = selectedBrands.length === 0 || selectedBrands.includes(brand);
 
-                    if (searchMatch && categoryMatch && brandMatch) {
+                    let priceMatch = false;
+                    if (selectedPriceRange === 'all') {
+                        priceMatch = true;
+                    } else {
+                        const [min, max] = selectedPriceRange.split('-').map(Number);
+                        if (max) {
+                            priceMatch = price >= min && price <= max;
+                        } else {
+                            priceMatch = price >= min;
+                        }
+                    }
+
+                    if (searchMatch && categoryMatch && brandMatch && priceMatch) {
                         card.style.display = 'block';
                     } else {
                         card.style.display = 'none';
@@ -431,6 +455,7 @@
                 });
             }
 
+            document.getElementById('price-filter').addEventListener('change', filterAndSearchProducts);
             filterCheckboxes.forEach(checkbox => checkbox.addEventListener('change', filterAndSearchProducts));
             searchBar.addEventListener('input', filterAndSearchProducts);
 
