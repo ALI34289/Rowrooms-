@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Electronics Showroom</title>
+    <meta name="description" content="Detailed information about our top electronic products.">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="product.css">
+</head>
+<body data-bs-theme="light">
+
+    <!-- Header -->
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <i class="fas fa-bolt"></i> Electro<strong>Shop</strong>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#products">Products</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-5">
+        <!-- Product Details Section -->
+        <section class="product-details">
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- Product Image Gallery -->
+                    <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="https://images.unsplash.com/photo-1593784944564-e4d033d37a8c?w=800&auto=format&fit=crop" class="d-block w-100" alt="Product Image 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://images.unsplash.com/photo-1593784944564-e4d033d37a8c?w=800&auto=format&fit=crop&p=2" class="d-block w-100" alt="Product Image 2">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- Product Info -->
+                    <h2>Smart LED TV 55"</h2>
+                    <p class="text-muted">Brand: Brand A</p>
+                    <div class="text-warning mb-2">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span class="text-dark">4.5 (120 reviews)</span>
+                    </div>
+                    <h3 class="my-3">$499.00 <s class="text-muted fs-5">$799.00</s></h3>
+                    <p>Experience stunning 4K visuals with our top-rated Smart LED TV. Features include HDR, Dolby Vision, and a sleek, modern design. Perfect for movie nights and gaming.</p>
+
+                    <div class="mt-4">
+                        <button class="btn btn-primary btn-lg"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        <button class="btn btn-outline-danger btn-lg ms-2">❤️ Add to Wishlist</button>
+                    </div>
+
+                    <!-- Product Specs -->
+                    <div class="mt-5">
+                        <h4>Specifications</h4>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Screen Size: 55 inches</li>
+                            <li class="list-group-item">Resolution: 4K Ultra HD</li>
+                            <li class="list-group-item">Refresh Rate: 120Hz</li>
+                            <li class="list-group-item">Smart TV: Yes</li>
+                            <li class="list-group-item">HDMI Ports: 4</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Products Section -->
+        <section class="related-products mt-5">
+            <h2 class="text-center mb-4">Related Products</h2>
+            <div class="row">
+                <!-- Related Product 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1626905959953-8e9b497e6570?w=500&auto=format&fit=crop" class="card-img-top" alt="Related Product 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Modern Refrigerator</h5>
+                            <p>$899</p>
+                            <a href="#" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Related Product 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1595122439369-16911229d18f?w=500&auto=format&fit=crop" class="card-img-top" alt="Related Product 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Split Air Conditioner</h5>
+                            <p>$650</p>
+                            <a href="#" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Related Product 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=500&auto=format&fit=crop" class="card-img-top" alt="Related Product 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Gaming Laptop</h5>
+                            <p>$1200</p>
+                            <a href="#" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-5 pb-4 mt-5">
+        <!-- Footer content from index.html can be reused here -->
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
