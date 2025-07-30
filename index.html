@@ -11,18 +11,38 @@
 <body>
     <div id="header-placeholder"></div>
 
-    <!-- Hero Section -->
-    <header class="p-5 text-center bg-image" style="background-image: url('https://via.placeholder.com/1920x600?text=Latest+Electronics'); height: 400px;">
-        <div class="mask" style="background-color: rgba(0, 0, 0, 0.6); height: 100%">
-            <div class="d-flex justify-content-center align-items-center h-100">
-                <div class="text-white">
-                    <h1 class="mb-3">India's Trusted Electronics Showroom</h1>
-                    <h4 class="mb-3">Get the best deals on the latest tech</h4>
-                    <a class="btn btn-outline-light btn-lg" href="products-v2.html" role="button">View Products</a>
-                    <a class="btn btn-primary btn-lg" href="offers.html" role="button">Explore Offers</a>
+    <!-- Hero Carousel -->
+    <header id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image: url('https://via.placeholder.com/1920x600?text=Offer+1'); height: 400px;">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Flat 40% Off on TVs</h5>
+                    <p>India's Trusted Electronics Showroom. The best deals on the latest tech.</p>
+                    <a href="offers.html" class="btn btn-primary">View Offer</a>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('https://via.placeholder.com/1920x600?text=Offer+2'); height: 400px;">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>No-Cost EMI on Appliances</h5>
+                    <p>Upgrade your home with our easy payment plans.</p>
+                    <a href="offers.html" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('https://via.placeholder.com/1920x600?text=Offer+3'); height: 400px;">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Exchange Bonus on Smartphones</h5>
+                    <p>Get the best value for your old phone.</p>
+                    <a href="offers.html" class="btn btn-primary">Explore Now</a>
                 </div>
             </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
     </header>
 
     <!-- Marquee for breaking deals -->
@@ -37,10 +57,10 @@
         <section class="py-5 text-center">
             <h2 class="mb-4">Featured Categories</h2>
             <div class="row">
-                <div class="col-lg-3 col-md-6 mb-4"><div class="card h-100"><div class="card-body"><i class="fas fa-tv fa-3x text-primary mb-3"></i><h5 class="card-title">TVs</h5></div></div></div>
-                <div class="col-lg-3 col-md-6 mb-4"><div class="card h-100"><div class="card-body"><i class="fas fa-snowflake fa-3x text-primary mb-3"></i><h5 class="card-title">Refrigerators</h5></div></div></div>
-                <div class="col-lg-3 col-md-6 mb-4"><div class="card h-100"><div class="card-body"><i class="fas fa-tshirt fa-3x text-primary mb-3"></i><h5 class="card-title">Washing Machines</h5></div></div></div>
-                <div class="col-lg-3 col-md-6 mb-4"><div class="card h-100"><div class="card-body"><i class="fas fa-wind fa-3x text-primary mb-3"></i><h5 class="card-title">ACs</h5></div></div></div>
+                <div class="col-lg-3 col-md-6 mb-4"><a href="products-v2.html?category=tv" class="text-decoration-none"><div class="card h-100"><div class="card-body"><i class="fas fa-tv fa-3x text-primary mb-3"></i><h5 class="card-title">TVs</h5></div></div></a></div>
+                <div class="col-lg-3 col-md-6 mb-4"><a href="products-v2.html?category=refrigerator" class="text-decoration-none"><div class="card h-100"><div class="card-body"><i class="fas fa-snowflake fa-3x text-primary mb-3"></i><h5 class="card-title">Refrigerators</h5></div></div></a></div>
+                <div class="col-lg-3 col-md-6 mb-4"><a href="products-v2.html?category=washing-machine" class="text-decoration-none"><div class="card h-100"><div class="card-body"><i class="fas fa-tshirt fa-3x text-primary mb-3"></i><h5 class="card-title">Washing Machines</h5></div></div></a></div>
+                <div class="col-lg-3 col-md-6 mb-4"><a href="products-v2.html?category=ac" class="text-decoration-none"><div class="card h-100"><div class="card-body"><i class="fas fa-wind fa-3x text-primary mb-3"></i><h5 class="card-title">ACs</h5></div></div></a></div>
             </div>
         </section>
 
@@ -56,18 +76,27 @@
             </div>
         </section>
 
+        <!-- Mid-Page CTA -->
+        <section class="py-5 text-center">
+            <div class="container">
+                <h2 class="display-6">Ready to Find Your Next Gadget?</h2>
+                <p class="lead">Browse our extensive collection of high-quality electronics.</p>
+                <a href="products-v2.html" class="btn btn-primary btn-lg">Explore All Products</a>
+            </div>
+        </section>
+
         <!-- Top Offers / Bumper Deals -->
         <section class="py-5">
             <h2 class="text-center mb-4">Top Offers & Bumper Deals</h2>
             <div class="row">
                 <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="card"><div class="card-body"><h5>Flat 30% Off on Sony TVs</h5><p>Use code: SONY30</p></div></div>
+                    <div class="card text-center"><img src="https://via.placeholder.com/100x50?text=Sony" class="card-img-top w-50 mx-auto mt-3" alt="Sony Logo"><div class="card-body"><h5>Flat 30% Off on Sony TVs</h5><p>Use code: SONY30</p></div></div>
                 </div>
                 <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="card"><div class="card-body"><h5>Free Soundbar with Samsung TVs</h5><p>On select models</p></div></div>
+                    <div class="card text-center"><img src="https://via.placeholder.com/100x50?text=Samsung" class="card-img-top w-50 mx-auto mt-3" alt="Samsung Logo"><div class="card-body"><h5>Free Soundbar with Samsung TVs</h5><p>On select models</p></div></div>
                 </div>
                 <div class="col-md-12 col-lg-4 mb-4">
-                    <div class="card"><div class="card-body"><h5>Exchange Bonus on Old Appliances</h5><p>Up to $100 off</p></div></div>
+                    <div class="card text-center"><i class="fas fa-sync-alt fa-3x text-primary my-3"></i><div class="card-body"><h5>Exchange Bonus on Old Appliances</h5><p>Up to $100 off</p></div></div>
                 </div>
             </div>
         </section>
@@ -98,6 +127,11 @@
         const now = new Date().getTime();
         const gap = countDate - now;
 
+        if (gap < 0) {
+            document.getElementById('countdown-timer').innerText = "Offer Ended";
+            return;
+        }
+
         const second = 1000;
         const minute = second * 60;
         const hour = minute * 60;
@@ -112,5 +146,21 @@
     };
     setInterval(countdown, 1000);
     </script>
+    <!-- Tawk.to Live Chat Placeholder -->
+    <!-- Start of Tawk.to Script -->
+    <!--
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/YOUR_PROPERTY_ID/YOUR_WIDGET_ID';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    -->
+    <!--End of Tawk.to Script-->
 </body>
 </html>

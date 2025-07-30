@@ -424,12 +424,21 @@
             // --- HANDLE URL QUERY PARAMS ---
             const urlParams = new URLSearchParams(window.location.search);
             const brandParam = urlParams.get('brand');
+            const categoryParam = urlParams.get('category');
             if (brandParam) {
                 const brandCheckbox = document.getElementById(`brand-${brandParam}`);
                 if (brandCheckbox) {
                     brandCheckbox.checked = true;
-                    filterAndSearchProducts(); // Trigger filter on page load
                 }
+            }
+            if (categoryParam) {
+                const categoryCheckbox = document.getElementById(`cat-${categoryParam}`);
+                if (categoryCheckbox) {
+                    categoryCheckbox.checked = true;
+                }
+            }
+            if (brandParam || categoryParam) {
+                filterAndSearchProducts(); // Trigger filter on page load
             }
 
             const productCards = document.querySelectorAll('.product-card');
