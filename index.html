@@ -5,138 +5,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Electronics Showroom</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="header-placeholder"></div>
 
-    <div class="container mt-5">
-        <!-- Hero Banner -->
-        <div class="p-5 mb-4 bg-light rounded-3 text-center">
-            <div class="container-fluid py-5">
-                <h1 class="display-4 fw-bold">Diwali Dhamaka Sale is LIVE!</h1>
-                <p class="fs-4">Get up to 40% off on the latest electronics. Limited time offer!</p>
-                <a href="offers.html" class="btn btn-primary btn-lg">Shop Now</a>
+    <!-- Hero Section -->
+    <header class="p-5 text-center bg-image" style="background-image: url('https://via.placeholder.com/1920x600?text=Latest+Electronics'); height: 400px;">
+        <div class="mask" style="background-color: rgba(0, 0, 0, 0.6); height: 100%">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <div class="text-white">
+                    <h1 class="mb-3">India's Trusted Electronics Showroom</h1>
+                    <h4 class="mb-3">Get the best deals on the latest tech</h4>
+                    <a class="btn btn-outline-light btn-lg" href="products-v2.html" role="button">View Products</a>
+                    <a class="btn btn-primary btn-lg" href="offers.html" role="button">Explore Offers</a>
+                </div>
             </div>
         </div>
+    </header>
 
-        <!-- Top Categories Section -->
-        <section class="py-5">
-            <h2 class="text-center mb-4">Top Categories</h2>
-            <div class="row text-center">
-                <div class="col-lg-4 mb-4">
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <i class="fas fa-tv fa-3x mb-3 text-primary"></i>
-                            <h5 class="card-title">Televisions</h5>
-                            <p class="card-text">The latest 4K, 8K, and OLED TVs.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-4">
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <i class="fas fa-snowflake fa-3x mb-3 text-primary"></i>
-                            <h5 class="card-title">Air Conditioners</h5>
-                            <p class="card-text">Energy-efficient and powerful ACs.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-4">
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <i class="fas fa-tshirt fa-3x mb-3 text-primary"></i>
-                            <h5 class="card-title">Washing Machines</h5>
-                            <p class="card-text">Smart, front-load, and top-load washers.</p>
-                        </div>
-                    </div>
+    <!-- Marquee for breaking deals -->
+    <div class="bg-dark text-white">
+        <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+            Special offer: Free installation on all ACs until the end of this month! &nbsp; | &nbsp; Diwali sale ends in <span id="countdown-timer"></span>!
+        </marquee>
+    </div>
+
+    <div class="container mt-5">
+        <!-- Featured Categories -->
+        <section class="py-5 text-center">
+            <h2 class="mb-4">Featured Categories</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4"><div class="card h-100"><div class="card-body"><i class="fas fa-tv fa-3x text-primary mb-3"></i><h5 class="card-title">TVs</h5></div></div></div>
+                <div class="col-lg-3 col-md-6 mb-4"><div class="card h-100"><div class="card-body"><i class="fas fa-snowflake fa-3x text-primary mb-3"></i><h5 class="card-title">Refrigerators</h5></div></div></div>
+                <div class="col-lg-3 col-md-6 mb-4"><div class="card h-100"><div class="card-body"><i class="fas fa-tshirt fa-3x text-primary mb-3"></i><h5 class="card-title">Washing Machines</h5></div></div></div>
+                <div class="col-lg-3 col-md-6 mb-4"><div class="card h-100"><div class="card-body"><i class="fas fa-wind fa-3x text-primary mb-3"></i><h5 class="card-title">ACs</h5></div></div></div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us? -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-4">Why Choose Us?</h2>
+                <div class="row">
+                    <div class="col-md-4 text-center mb-3"><i class="fas fa-credit-card fa-2x text-success mb-2"></i><h5>EMI Available</h5></div>
+                    <div class="col-md-4 text-center mb-3"><i class="fas fa-truck fa-2x text-success mb-2"></i><h5>Free Delivery</h5></div>
+                    <div class="col-md-4 text-center mb-3"><i class="fas fa-file-invoice-dollar fa-2x text-success mb-2"></i><h5>GST Billing</h5></div>
                 </div>
             </div>
         </section>
 
-        <!-- Featured Products Section -->
-        <h2 class="text-center mb-4">Featured Products (Hot Deals)</h2>
-        <div class="row">
-            <!-- Product 1 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Product Name">
-                    <div class="card-body">
-                        <h5 class="card-title">Latest 4K TV</h5>
-                        <p class="card-text">Experience stunning visuals with our new range of 4K televisions.</p>
-                        <a href="#" class="btn btn-primary">View Details</a>
-                    </div>
+        <!-- Top Offers / Bumper Deals -->
+        <section class="py-5">
+            <h2 class="text-center mb-4">Top Offers & Bumper Deals</h2>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card"><div class="card-body"><h5>Flat 30% Off on Sony TVs</h5><p>Use code: SONY30</p></div></div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card"><div class="card-body"><h5>Free Soundbar with Samsung TVs</h5><p>On select models</p></div></div>
+                </div>
+                <div class="col-md-12 col-lg-4 mb-4">
+                    <div class="card"><div class="card-body"><h5>Exchange Bonus on Old Appliances</h5><p>Up to $100 off</p></div></div>
                 </div>
             </div>
-            <!-- Product 2 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Product Name">
-                    <div class="card-body">
-                        <h5 class="card-title">Smart Refrigerator</h5>
-                        <p class="card-text">Keep your food fresh with our energy-efficient smart refrigerators.</p>
-                        <a href="#" class="btn btn-primary">View Details</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Product 3 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Product Name">
-                    <div class="card-body">
-                        <h5 class="card-title">High-Efficiency Washing Machine</h5>
-                        <p class="card-text">Save water and energy with our latest washing machines.</p>
-                        <a href="#" class="btn btn-primary">View Details</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </section>
 
-        <!-- Showroom Highlights Section -->
-        <h2 class="text-center my-4">Showroom Highlights</h2>
-        <div class="row text-center">
-            <div class="col-md-4">
-                <h5>Expert Staff</h5>
-                <p>Our knowledgeable staff are here to help you find the perfect product.</p>
-            </div>
-            <div class="col-md-4">
-                <h5>Live Demos</h5>
-                <p>Experience products firsthand with live demonstrations in our showroom.</p>
-            </div>
-            <div class="col-md-4">
-                <h5>Best Prices</h5>
-                <p>We offer competitive pricing and great deals on all our products.</p>
-            </div>
-        </div>
-
-        <!-- Why Choose Us Section -->
+        <!-- Customer Review Teaser -->
         <section class="py-5 bg-light">
             <div class="container">
-                <h2 class="text-center mb-4">Why Choose Us?</h2>
-                <div class="row text-center">
-                    <div class="col-md-4 mb-3">
-                        <i class="fas fa-credit-card fa-2x text-primary mb-2"></i>
-                        <h5>Flexible EMI</h5>
-                        <p>Easy and affordable EMI options available from all major banks.</p>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <i class="fas fa-truck fa-2x text-primary mb-2"></i>
-                        <h5>Doorstep Delivery</h5>
-                        <p>Fast and reliable delivery right to your doorstep.</p>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <i class="fas fa-tools fa-2x text-primary mb-2"></i>
-                        <h5>Installation Support</h5>
-                        <p>Professional installation and setup for all your appliances.</p>
-                    </div>
+                <h2 class="text-center mb-4">What Our Customers Say</h2>
+                <div class="row">
+                    <div class="col-md-6 col-lg-4 mb-4"><div class="card"><div class="card-body"><p>"Great service!"</p><footer class="blockquote-footer">John D.</footer></div></div></div>
+                    <div class="col-md-6 col-lg-4 mb-4"><div class="card"><div class="card-body"><p>"Best prices in town."</p><footer class="blockquote-footer">Jane S.</footer></div></div></div>
+                    <div class="col-md-12 col-lg-4 mb-4"><div class="card"><div class="card-body"><p>"Fast delivery!"</p><footer class="blockquote-footer">Peter P.</footer></div></div></div>
+                </div>
+                <div class="text-center">
+                    <a href="reviews.html" class="btn btn-primary">Read More Reviews</a>
                 </div>
             </div>
         </section>
     </div>
 
     <div id="footer-placeholder"></div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="scripts.js"></script>
+    <script>
+    // Countdown Timer Logic
+    const countdown = () => {
+        const countDate = new Date('December 31, 2024 23:59:59').getTime();
+        const now = new Date().getTime();
+        const gap = countDate - now;
+
+        const second = 1000;
+        const minute = second * 60;
+        const hour = minute * 60;
+        const day = hour * 24;
+
+        const textDay = Math.floor(gap / day);
+        const textHour = Math.floor((gap % day) / hour);
+        const textMinute = Math.floor((gap % hour) / minute);
+        const textSecond = Math.floor((gap % minute) / second);
+
+        document.getElementById('countdown-timer').innerText = `${textDay}d ${textHour}h ${textMinute}m ${textSecond}s`;
+    };
+    setInterval(countdown, 1000);
+    </script>
 </body>
 </html>

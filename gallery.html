@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery - Electronics Showroom</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.1.0/simple-lightbox.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,32 +19,52 @@
 
         <!-- Showroom Interior/Exterior -->
         <h2 class="mb-4">Showroom Tour</h2>
-        <div class="row g-4">
-            <div class="col-md-6"><img src="https://via.placeholder.com/600x400?text=Showroom+Exterior" class="img-fluid rounded shadow-sm" alt="Showroom Exterior"></div>
-            <div class="col-md-6"><img src="https://via.placeholder.com/600x400?text=Showroom+Interior" class="img-fluid rounded shadow-sm" alt="Showroom Interior"></div>
+        <div class="row g-4 gallery-group">
+            <div class="col-md-6"><a href="https://via.placeholder.com/1200x800?text=Showroom+Exterior"><img src="https://via.placeholder.com/600x400?text=Showroom+Exterior" class="img-fluid rounded shadow-sm" alt="Showroom Exterior"></a></div>
+            <div class="col-md-6"><a href="https://via.placeholder.com/1200x800?text=Showroom+Interior"><img src="https://via.placeholder.com/600x400?text=Showroom+Interior" class="img-fluid rounded shadow-sm" alt="Showroom Interior"></a></div>
         </div>
 
         <!-- Product Displays -->
         <h2 class="my-5">Product Displays</h2>
-        <div class="row g-4">
-            <div class="col-lg-4 col-md-6"><img src="https://via.placeholder.com/400x300?text=TV+Section" class="img-fluid rounded shadow-sm" alt="TV Display Section"></div>
-            <div class="col-lg-4 col-md-6"><img src="https://via.placeholder.com/400x300?text=Appliance+Section" class="img-fluid rounded shadow-sm" alt="Home Appliances Section"></div>
-            <div class="col-lg-4 col-md-6"><img src="https://via.placeholder.com/400x300?text=Audio+Section" class="img-fluid rounded shadow-sm" alt="Audio Systems Display"></div>
+        <div class="row g-4 gallery-group">
+            <div class="col-lg-4 col-md-6"><a href="https://via.placeholder.com/1200x800?text=TV+Section"><img src="https://via.placeholder.com/400x300?text=TV+Section" class="img-fluid rounded shadow-sm" alt="TV Display Section"></a></div>
+            <div class="col-lg-4 col-md-6"><a href="https://via.placeholder.com/1200x800?text=Appliance+Section"><img src="https://via.placeholder.com/400x300?text=Appliance+Section" class="img-fluid rounded shadow-sm" alt="Home Appliances Section"></a></div>
+            <div class="col-lg-4 col-md-6"><a href="https://via.placeholder.com/1200x800?text=Audio+Section"><img src="https://via.placeholder.com/400x300?text=Audio+Section" class="img-fluid rounded shadow-sm" alt="Audio Systems Display"></a></div>
         </div>
 
         <!-- Happy Customers -->
         <h2 class="my-5">Our Happy Customers</h2>
-        <div class="row g-4">
-            <div class="col-lg-3 col-md-6"><img src="https://via.placeholder.com/400x400?text=Customer+1" class="img-fluid rounded shadow-sm" alt="Happy Customer 1"></div>
-            <div class="col-lg-3 col-md-6"><img src="https://via.placeholder.com/400x400?text=Customer+2" class="img-fluid rounded shadow-sm" alt="Happy Customer 2"></div>
-            <div class="col-lg-3 col-md-6"><img src="https://via.placeholder.com/400x400?text=Customer+3" class="img-fluid rounded shadow-sm" alt="Happy Customer 3"></div>
-            <div class="col-lg-3 col-md-6"><img src="https://via.placeholder.com/400x400?text=Customer+4" class="img-fluid rounded shadow-sm" alt="Happy Customer 4"></div>
+        <div class="row g-4 gallery-group">
+            <div class="col-lg-3 col-md-6"><a href="https://via.placeholder.com/800x800?text=Customer+1"><img src="https://via.placeholder.com/400x400?text=Customer+1" class="img-fluid rounded shadow-sm" alt="Happy Customer 1"></a></div>
+            <div class="col-lg-3 col-md-6"><a href="https://via.placeholder.com/800x800?text=Customer+2"><img src="https://via.placeholder.com/400x400?text=Customer+2" class="img-fluid rounded shadow-sm" alt="Happy Customer 2"></a></div>
+            <div class="col-lg-3 col-md-6"><a href="https://via.placeholder.com/800x800?text=Customer+3"><img src="https://via.placeholder.com/400x400?text=Customer+3" class="img-fluid rounded shadow-sm" alt="Happy Customer 3"></a></div>
+            <div class="col-lg-3 col-md-6"><a href="https://via.placeholder.com/800x800?text=Customer+4"><img src="https://via.placeholder.com/400x400?text=Customer+4" class="img-fluid rounded shadow-sm" alt="Happy Customer 4"></a></div>
         </div>
+
+        <!-- Before/After -->
+        <h2 class="my-5">Before & After Setup</h2>
+        <div class="row g-4">
+            <div class="col-md-6"><p class="text-center"><strong>Before</strong></p><img src="https://via.placeholder.com/600x400?text=Before+Installation" class="img-fluid rounded shadow-sm" alt="Before setup"></div>
+            <div class="col-md-6"><p class="text-center"><strong>After</strong></p><img src="https://via.placeholder.com/600x400?text=After+Installation" class="img-fluid rounded shadow-sm" alt="After setup"></div>
+        </div>
+
+        <!-- Showroom Walkthrough -->
+        <section class="my-5 text-center">
+            <h2 class="mb-4">Showroom Walkthrough</h2>
+            <div class="ratio ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
     </div>
 
     <div id="footer-placeholder"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.1.0/simple-lightbox.min.js"></script>
     <script src="scripts.js"></script>
+    <script>
+        // Initialize SimpleLightbox
+        var lightbox = new SimpleLightbox('.gallery-group a');
+    </script>
 </body>
 </html>

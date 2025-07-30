@@ -16,42 +16,69 @@
             <p class="lead text-muted">We are proud to have served thousands of happy customers.</p>
         </div>
 
-        <div class="row">
-            <!-- Review 1 -->
-            <div class="col-lg-6 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center mb-3">
-                            <img src="https://via.placeholder.com/60" class="rounded-circle" alt="Customer John Doe">
-                            <div class="ms-3">
-                                <h5 class="mb-0">John Doe</h5>
-                                <div class="text-warning">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="card-text">"Excellent service and a great selection of products. The staff was very helpful and guided me to the perfect AC for my home. Highly recommended!"</p>
-                    </div>
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h4>Average Rating</h4>
+                <h1 class="display-1 fw-bold">4.8</h1>
+                <div class="text-warning h4">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                 </div>
+                <p class="text-muted">Based on 150+ reviews</p>
             </div>
-            <!-- Review 2 -->
-            <div class="col-lg-6 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center mb-3">
-                            <img src="https://via.placeholder.com/60" class="rounded-circle" alt="Customer Jane Smith">
-                            <div class="ms-3">
-                                <h5 class="mb-0">Jane Smith</h5>
-                                <div class="text-warning">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="card-text">"I found the perfect TV for my living room at a very competitive price. The delivery and installation were seamless. Will definitely shop here again."</p>
-                    </div>
-                </div>
+            <div class="col-md-6">
+                <!-- Placeholder for rating bars -->
+                <p>5 star: 80%</p>
+                <p>4 star: 15%</p>
+                <p>3 star: 5%</p>
             </div>
         </div>
+
+        <hr class="my-5">
+
+        <!-- Reviews Carousel -->
+        <div id="reviewsCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="card h-100"><div class="card-body"><p>"Excellent service!"</p><footer class="blockquote-footer">John D.</footer></div></div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card h-100"><div class="card-body"><p>"Best prices."</p><footer class="blockquote-footer">Jane S.</footer></div></div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <hr class="my-5">
+
+        <!-- Review Submission Form -->
+        <section class="py-5 bg-light rounded">
+            <div class="container">
+                <h2 class="text-center mb-4">Submit Your Review</h2>
+                <form>
+                    <div class="row">
+                        <div class="col-md-6 mb-3"><input type="text" class="form-control" placeholder="Your Name" required></div>
+                        <div class="col-md-6 mb-3"><input type="email" class="form-control" placeholder="Your Email" required></div>
+                    </div>
+                    <div class="mb-3">
+                        <select class="form-select">
+                            <option selected>Rate your experience (1-5 stars)</option>
+                            <option value="5">5 Stars</option>
+                            <option value="4">4 Stars</option>
+                            <option value="3">3 Stars</option>
+                            <option value="2">2 Stars</option>
+                            <option value="1">1 Star</option>
+                        </select>
+                    </div>
+                    <div class="mb-3"><textarea class="form-control" rows="4" placeholder="Write your review here..."></textarea></div>
+                    <div class="text-center"><button type="submit" class="btn btn-primary">Submit Review</button></div>
+                </form>
+            </div>
+        </section>
 
         <!-- Google Reviews Embed -->
         <section class="my-5 text-center">
