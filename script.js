@@ -184,6 +184,65 @@ if (calculateEmiBtn) {
     });
 }
 
+// Add Product Form
+const addProductForm = document.getElementById('addProductForm');
+if (addProductForm) {
+    const productGrid = document.getElementById('productGrid');
+    const successMessage = document.getElementById('successMessage');
+    let products = JSON.parse(localStorage.getItem('products')) || [];
+
+    const renderProducts = () => {
+        productGrid.innerHTML = '';
+        products.forEach((product, index) => {
+            const productCard = document.createElement('div');
+            productCard.classList.add('product-card');
+            productCard.innerHTML = `
+                <button class="delete-btn" data-index="${index}">&times;</button>
+                <img src="${product.image}" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p><strong>Price:</strong> ₹${product.price}</p>
+                <p><strong>Category:</strong> ${product.category}</p>
+                <p>${product.description}</p>
+            `;
+            productGrid.appendChild(productCard);
+        });
+    };
+
+    addProductForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const newProduct = {
+            name: document.getElementById('productName').value,
+            price: document.getElementById('productPrice').value,
+            image: document.getElementById('productImage').value,
+            category: document.getElementById('productCategory').value,
+            description: document.getElementById('productDescription').value,
+        };
+
+        products.push(newProduct);
+        localStorage.setItem('products', JSON.stringify(products));
+
+        renderProducts();
+        addProductForm.reset();
+
+        successMessage.classList.remove('hidden');
+        setTimeout(() => {
+            successMessage.classList.add('hidden');
+        }, 3000);
+    });
+
+    productGrid.addEventListener('click', (e) => {
+        if (e.target.classList.contains('delete-btn')) {
+            const index = e.target.getAttribute('data-index');
+            products.splice(index, 1);
+            localStorage.setItem('products', JSON.stringify(products));
+            renderProducts();
+        }
+    });
+
+    renderProducts();
+}
+
 // Social Proof Popups
 const socialProofPopup = document.getElementById('social-proof-popup');
 if (socialProofPopup) {

@@ -362,3 +362,29 @@ body {
     left: 20px;
     z-index: 1055;
 }
+
+/* Product Details Page */
+.product-details .carousel-item img {
+    max-height: 500px;
+    object-fit: contain;
+}
+
+.product-details h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.product-details .list-group-item {
+    background-color: transparent;
+    border: none;
+    padding-left: 0;
+}
+
+.related-products .card {
+    transition: transform 0.2s;
+}
+
+.related-products .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
