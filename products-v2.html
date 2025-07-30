@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find the best deals on the latest electronics. We offer a wide range of TVs, refrigerators, washing machines, and more from top brands.">
+    <meta name="keywords" content="electronics, TV, smart TV, 4K TV, refrigerator, washing machine, LG, Samsung, Sony">
+    <title>Our Products | Modern Electronics Showroom</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .card-img-top {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+        .product-card .card {
+            transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .product-card:hover .card {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12) !important;
+        }
+        .product-card:hover .card-img-top {
+            transform: scale(1.05);
+        }
+        .ratings i {
+            font-size: 0.9rem;
+        }
+        .price {
+            color: #0d6efd;
+        }
+        .btn-primary {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+        }
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+            border-color: #0a58ca;
+        }
+        .whatsapp-btn, .scroll-to-top-btn {
+            position: fixed;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 1050;
+        }
+        .whatsapp-btn {
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+        }
+        .scroll-to-top-btn {
+            bottom: 90px;
+            right: 20px;
+            background-color: #0d6efd;
+            display: none; /* Hidden by default */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Electronics Showroom</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Brands</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Offers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+        <div class="text-center mb-5">
+            <h1>Our Products</h1>
+            <p class="lead text-muted">Explore our collection of the finest electronics.</p>
+        </div>
+
+        <!-- Filters and Search -->
+        <div class="row mb-4">
+            <div class="col-lg-3 col-md-6 mb-3">
+                <h5>Category</h5>
+                <div class="form-check"><input class="form-check-input" type="checkbox" value="tv" id="cat-tv"><label class="form-check-label" for="cat-tv">TVs</label></div>
+                <div class="form-check"><input class="form-check-input" type="checkbox" value="refrigerator" id="cat-fridge"><label class="form-check-label" for="cat-fridge">Refrigerators</label></div>
+                <div class="form-check"><input class="form-check-input" type="checkbox" value="washing-machine" id="cat-wm"><label class="form-check-label" for="cat-wm">Washing Machines</label></div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-3">
+                <h5>Brand</h5>
+                <div class="form-check"><input class="form-check-input" type="checkbox" value="samsung" id="brand-samsung"><label class="form-check-label" for="brand-samsung">Samsung</label></div>
+                <div class="form-check"><input class="form-check-input" type="checkbox" value="lg" id="brand-lg"><label class="form-check-label" for="brand-lg">LG</label></div>
+                <div class="form-check"><input class="form-check-input" type="checkbox" value="sony" id="brand-sony"><label class="form-check-label" for="brand-sony">Sony</label></div>
+            </div>
+            <div class="col-lg-4 col-md-8 mb-3">
+                <h5>Search</h5>
+                <input type="text" class="form-control" id="search-bar" placeholder="Search by product name...">
+            </div>
+            <div class="col-lg-2 col-md-4 mb-3 d-flex align-items-end">
+                <button class="btn btn-secondary w-100" id="clear-filters">Clear Filters</button>
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="product-grid">
+
+            <!-- Product 1: Samsung TV -->
+            <div class="col product-card" data-category="tv" data-brand="samsung">
+                <div class="card h-100 shadow-sm">
+                    <span class="badge bg-danger position-absolute top-0 end-0 m-2">Hot</span>
+                    <img src="https://images.unsplash.com/photo-1593784917036-402de37469a4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="Samsung QLED 4K Smart TV" loading="lazy">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Samsung QLED 4K Smart TV</h5>
+                        <p class="card-text text-muted">A stunning 55-inch QLED TV with vibrant colors and smart features.</p>
+                        <div class="mt-auto">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <div class="ratings" title="4.5 out of 5 stars">
+                                    <i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star-half-alt text-warning"></i>
+                                </div>
+                                <span class="price fw-bold fs-5">$799</span>
+                            </div>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal1">View Details</button>
+                                <button class="btn btn-outline-secondary">Enquire Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2: LG Refrigerator -->
+            <div class="col product-card" data-category="refrigerator" data-brand="lg">
+                <div class="card h-100 shadow-sm">
+                    <span class="badge bg-success position-absolute top-0 end-0 m-2">New</span>
+                    <img src="https://images.unsplash.com/photo-1617886903353-0c78a7f4b64e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="LG InstaView Smart Refrigerator" loading="lazy">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">LG InstaView Smart Refrigerator</h5>
+                        <p class="card-text text-muted">A spacious and energy-saving smart refrigerator with InstaView door.</p>
+                        <div class="mt-auto">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <div class="ratings" title="5 out of 5 stars">
+                                    <i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i>
+                                </div>
+                                <span class="price fw-bold fs-5">$1299</span>
+                            </div>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal2">View Details</button>
+                                <button class="btn btn-outline-secondary">Enquire Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3: Sony Washing Machine -->
+            <div class="col product-card" data-category="washing-machine" data-brand="sony">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1582735689369-7fe294a11425?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="Sony Smart Washing Machine" loading="lazy">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Sony Smart Washing Machine</h5>
+                        <p class="card-text text-muted">A high-performance washing machine with multiple smart wash programs.</p>
+                        <div class="mt-auto">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <div class="ratings" title="4.0 out of 5 stars">
+                                    <i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="far fa-star text-warning"></i>
+                                </div>
+                                <span class="price fw-bold fs-5">$899</span>
+                            </div>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal3">View Details</button>
+                                <button class="btn btn-outline-secondary">Enquire Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4: Sony TV -->
+            <div class="col product-card" data-category="tv" data-brand="sony">
+                <div class="card h-100 shadow-sm">
+                     <span class="badge bg-success position-absolute top-0 end-0 m-2">New</span>
+                    <img src="https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="Sony Bravia 8K TV" loading="lazy">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Sony Bravia 8K TV</h5>
+                        <p class="card-text text-muted">Experience the future of television with this stunning 8K display.</p>
+                        <div class="mt-auto">
+                             <div class="d-flex justify-content-between align-items-center mb-2">
+                                <div class="ratings" title="5 out of 5 stars">
+                                    <i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i>
+                                </div>
+                                <span class="price fw-bold fs-5">$2499</span>
+                            </div>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal4">View Details</button>
+                                <button class="btn btn-outline-secondary">Enquire Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5: Samsung Refrigerator -->
+            <div class="col product-card" data-category="refrigerator" data-brand="samsung">
+                 <div class="card h-100 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1571175443880-49e1d25b2dcb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="Samsung Family Hub Refrigerator" loading="lazy">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Samsung Family Hub Refrigerator</h5>
+                        <p class="card-text text-muted">A smart fridge with a touchscreen, perfect for the modern family.</p>
+                        <div class="mt-auto">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <div class="ratings" title="4.5 out of 5 stars">
+                                    <i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star-half-alt text-warning"></i>
+                                </div>
+                                <span class="price fw-bold fs-5">$1999</span>
+                            </div>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal5">View Details</button>
+                                <button class="btn btn-outline-secondary">Enquire Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6: LG Washing Machine -->
+            <div class="col product-card" data-category="washing-machine" data-brand="lg">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1626806819282-2c1dc0165453?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="LG TurboWash Washing Machine" loading="lazy">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">LG TurboWash Washing Machine</h5>
+                        <p class="card-text text-muted">Get your clothes clean in record time with LG's TurboWash technology.</p>
+                        <div class="mt-auto">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                 <div class="ratings" title="4.5 out of 5 stars">
+                                    <i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star-half-alt text-warning"></i>
+                                </div>
+                                <span class="price fw-bold fs-5">$999</span>
+                            </div>
+                             <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal6">View Details</button>
+                                <button class="btn btn-outline-secondary">Enquire Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Modals -->
+    <!-- Product 1 Modal -->
+    <div class="modal fade" id="productModal1" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Samsung QLED 4K Smart TV</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1593784917036-402de37469a4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" class="img-fluid rounded mb-3" alt="Samsung QLED 4K Smart TV">
+                    <p>Experience crystal-clear picture quality with the Samsung 55-inch QLED 4K Smart TV. Features include a powerful Quantum Processor, smart hub for all your streaming needs, and a sleek, modern design.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="ratings" title="4.5 out of 5 stars"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star-half-alt text-warning"></i></div>
+                        <span class="price fw-bold fs-4">$799</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Product 2 Modal -->
+    <div class="modal fade" id="productModal2" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header"><h5 class="modal-title">LG InstaView Smart Refrigerator</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1617886903353-0c78a7f4b64e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" class="img-fluid rounded mb-3" alt="LG InstaView Smart Refrigerator">
+                    <p>This spacious and energy-saving smart refrigerator features LG's InstaView door-in-door technology, allowing you to see inside without opening the door.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="ratings" title="5 out of 5 stars"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i></div>
+                        <span class="price fw-bold fs-4">$1299</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Product 3 Modal -->
+    <div class="modal fade" id="productModal3" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header"><h5 class="modal-title">Sony Smart Washing Machine</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1582735689369-7fe294a11425?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" class="img-fluid rounded mb-3" alt="Sony Smart Washing Machine">
+                    <p>A high-performance washing machine with multiple smart wash programs, quiet operation, and a large capacity drum perfect for families.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="ratings" title="4.0 out of 5 stars"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="far fa-star text-warning"></i></div>
+                        <span class="price fw-bold fs-4">$899</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Product 4 Modal -->
+    <div class="modal fade" id="productModal4" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header"><h5 class="modal-title">Sony Bravia 8K TV</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" class="img-fluid rounded mb-3" alt="Sony Bravia 8K TV">
+                    <p>Experience the future of television with this stunning 8K display. The powerful processor upscales any content to near-8K quality for breathtaking realism.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="ratings" title="5 out of 5 stars"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i></div>
+                        <span class="price fw-bold fs-4">$2499</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Product 5 Modal -->
+    <div class="modal fade" id="productModal5" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header"><h5 class="modal-title">Samsung Family Hub Refrigerator</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1571175443880-49e1d25b2dcb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" class="img-fluid rounded mb-3" alt="Samsung Family Hub Refrigerator">
+                    <p>A smart fridge with a touchscreen, perfect for the modern family. Manage your groceries, stream music, and more right from your refrigerator.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="ratings" title="4.5 out of 5 stars"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star-half-alt text-warning"></i></div>
+                        <span class="price fw-bold fs-4">$1999</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Product 6 Modal -->
+    <div class="modal fade" id="productModal6" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header"><h5 class="modal-title">LG TurboWash Washing Machine</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1626806819282-2c1dc0165453?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" class="img-fluid rounded mb-3" alt="LG TurboWash Washing Machine">
+                    <p>Get your clothes clean in record time with LG's TurboWash technology. This machine is both powerful and efficient, saving you time and energy.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="ratings" title="4.5 out of 5 stars"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star-half-alt text-warning"></i></div>
+                        <span class="price fw-bold fs-4">$999</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Floating Action Buttons -->
+    <a href="https://wa.me/1234567890" target="_blank" class="whatsapp-btn" title="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <button class="scroll-to-top-btn" title="Go to top">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center p-4 mt-auto">
+        <div class="container">
+            <p>&copy; 2024 Electronics Showroom. All Rights Reserved.</p>
+            <div>
+                <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Vanilla JS for Interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const productCards = document.querySelectorAll('.product-card');
+            const filterCheckboxes = document.querySelectorAll('.form-check-input');
+            const searchBar = document.getElementById('search-bar');
+            const clearFiltersButton = document.getElementById('clear-filters');
+            const scrollToTopBtn = document.querySelector('.scroll-to-top-btn');
+
+            // --- FILTERING AND SEARCH ---
+            function filterAndSearchProducts() {
+                const searchQuery = searchBar.value.toLowerCase();
+                const selectedCategories = Array.from(document.querySelectorAll('input[id^="cat-"]:checked')).map(cb => cb.value);
+                const selectedBrands = Array.from(document.querySelectorAll('input[id^="brand-"]:checked')).map(cb => cb.value);
+
+                productCards.forEach(card => {
+                    const title = card.querySelector('.card-title').textContent.toLowerCase();
+                    const category = card.dataset.category;
+                    const brand = card.dataset.brand;
+
+                    const searchMatch = title.includes(searchQuery);
+                    const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(category);
+                    const brandMatch = selectedBrands.length === 0 || selectedBrands.includes(brand);
+
+                    if (searchMatch && categoryMatch && brandMatch) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            filterCheckboxes.forEach(checkbox => checkbox.addEventListener('change', filterAndSearchProducts));
+            searchBar.addEventListener('input', filterAndSearchProducts);
+
+            clearFiltersButton.addEventListener('click', () => {
+                filterCheckboxes.forEach(checkbox => checkbox.checked = false);
+                searchBar.value = '';
+                filterAndSearchProducts();
+            });
+
+            // --- SCROLL TO TOP ---
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    scrollToTopBtn.style.display = 'block';
+                } else {
+                    scrollToTopBtn.style.display = 'none';
+                }
+            });
+
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
