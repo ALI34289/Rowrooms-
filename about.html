@@ -8,6 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.1.0/simple-lightbox.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <style>
     /* General Styles */
     body { font-family: 'Open Sans', sans-serif; margin: 0; }
@@ -35,6 +38,20 @@
     .story-text h2 { font-size: 2.5rem; color: #003366; margin-bottom: 1rem; }
     .story-image { flex: 1; }
     .story-image img { width: 100%; border-radius: 10px; }
+
+    /* Timeline Section */
+    .timeline-section { padding: 4rem 0; background-color: #FFFFFF; }
+    .timeline-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 2rem; color: #003366; }
+    .timeline { position: relative; max-width: 1200px; margin: 0 auto; }
+    .timeline::after { content: ''; position: absolute; width: 6px; background-color: #00BFFF; top: 0; bottom: 0; left: 50%; margin-left: -3px; }
+    .timeline-container { padding: 10px 40px; position: relative; background-color: inherit; width: 50%; }
+    .timeline-container.left { left: 0; }
+    .timeline-container.right { left: 50%; }
+    .timeline-container::after { content: ''; position: absolute; width: 25px; height: 25px; right: -17px; background-color: white; border: 4px solid #00BFFF; top: 15px; border-radius: 50%; z-index: 1; }
+    .timeline-container.right::after { left: -16px; }
+    .timeline-content { padding: 20px 30px; background-color: #F8F9FA; position: relative; border-radius: 6px; }
+    .timeline-content h3 { margin-top: 0; }
+
     .mission-vision { padding: 4rem 0; background-color: #F8F9FA; }
     .mission-vision-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
     .mission-card, .vision-card, .values-card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
@@ -44,7 +61,6 @@
     .values-card li::before { content: '✓'; color: #00BFFF; margin-right: 10px; font-weight: bold; }
     .infrastructure-section { padding: 4rem 0; background-color: #FFFFFF; }
     .infrastructure-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 2rem; color: #003366; }
-    .facilities-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
     .facility-card { background-color: #ffffff; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); text-align: center; padding: 2rem; border-left: 5px solid #00BFFF; }
     .facility-icon { font-size: 2.5rem; color: #003366; margin-bottom: 1.5rem; }
     .facility-card h4 { font-size: 1.3rem; color: #003366; margin-bottom: 1rem; }
@@ -55,9 +71,19 @@
     .gallery-item img:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
     .certifications-section { padding: 4rem 0; background-color: #FFFFFF; }
     .certifications-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 2rem; color: #003366; }
-    .certifications-list { list-style: none; padding: 0; max-width: 800px; margin: 0 auto; text-align: center; }
-    .certifications-list li { font-size: 1.2rem; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; }
-    .certifications-list li i { color: #00BFFF; font-size: 1.5rem; margin-right: 1rem; }
+    .certifications-list { list-style: none; padding: 0; max-width: 800px; margin: 0 auto; }
+    .certifications-list li { display: flex; align-items: center; margin-bottom: 2rem; background: #F8F9FA; padding: 1.5rem; border-radius: 10px; }
+    .certifications-list .logo-container { flex: 0 0 100px; margin-right: 1.5rem; }
+    .certifications-list .logo-container img { max-width: 100%; }
+    .certifications-list .cert-text { font-size: 1.2rem; }
+
+    /* Media Mentions Section */
+    .media-mentions-section { padding: 4rem 0; background-color: #F8F9FA; }
+    .media-mentions-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 2rem; color: #003366; }
+    .media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .media-card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+    .media-card h3 { margin-top: 0; }
+    .media-card a { color: #00BFFF; text-decoration: none; font-weight: bold; }
 
     /* Footer */
     .footer { background: #003366; color: #d3d3d3; padding: 30px; }
@@ -112,6 +138,38 @@
       </div>
     </section>
 
+    <section class="timeline-section">
+      <div class="container">
+        <h2>Our Journey</h2>
+        <div class="timeline">
+          <div class="timeline-container left" data-aos="fade-right">
+            <div class="timeline-content">
+              <h3>2002 - The Beginning</h3>
+              <p>Laksh Hospital was founded as a small 10-bed clinic with a focus on general medicine.</p>
+            </div>
+          </div>
+          <div class="timeline-container right" data-aos="fade-left">
+            <div class="timeline-content">
+              <h3>2008 - Expansion</h3>
+              <p>Expanded to a 50-bed facility and added Cardiology and Orthopedics departments.</p>
+            </div>
+          </div>
+          <div class="timeline-container left" data-aos="fade-right">
+            <div class="timeline-content">
+              <h3>2015 - New Wing</h3>
+              <p>Inaugurated a new wing with advanced surgical theaters and a dedicated pediatric unit.</p>
+            </div>
+          </div>
+          <div class="timeline-container right" data-aos="fade-left">
+            <div class="timeline-content">
+              <h3>2023 - NABH Accreditation</h3>
+              <p>Received NABH accreditation, a testament to our commitment to quality and patient safety.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="mission-vision">
       <div class="container">
         <div class="mission-vision-grid">
@@ -136,55 +194,101 @@
       </div>
     </section>
 
-    <section class="infrastructure-section">
+    <section class="infrastructure-section" data-aos="fade-up">
       <div class="container">
         <h2>Infrastructure & Facilities</h2>
-        <div class="facilities-grid">
-          <div class="facility-card">
-            <div class="facility-icon"><i class="fas fa-procedures"></i></div>
-            <h4>Modern Operation Theaters</h4>
-            <p>Equipped with the latest technology for a wide range of surgical procedures.</p>
+        <div class="swiper-container infrastructure-slider">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="facility-card">
+                <div class="facility-icon"><i class="fas fa-procedures"></i></div>
+                <h4>Modern Operation Theaters</h4>
+                <p>Equipped with the latest technology for a wide range of surgical procedures.</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="facility-card">
+                <div class="facility-icon"><i class="fas fa-vials"></i></div>
+                <h4>Advanced Laboratory</h4>
+                <p>In-house laboratory for accurate and timely diagnostic testing.</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="facility-card">
+                <div class="facility-icon"><i class="fas fa-bed"></i></div>
+                <h4>Comfortable Patient Rooms</h4>
+                <p>Private and semi-private rooms designed for patient comfort and recovery.</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="facility-card">
+                <div class="facility-icon"><i class="fas fa-ambulance"></i></div>
+                <h4>24/7 Emergency Room</h4>
+                <p>Fully staffed emergency department ready to handle any medical crisis.</p>
+              </div>
+            </div>
           </div>
-          <div class="facility-card">
-            <div class="facility-icon"><i class="fas fa-vials"></i></div>
-            <h4>Advanced Laboratory</h4>
-            <p>In-house laboratory for accurate and timely diagnostic testing.</p>
-          </div>
-          <div class="facility-card">
-            <div class="facility-icon"><i class="fas fa-bed"></i></div>
-            <h4>Comfortable Patient Rooms</h4>
-            <p>Private and semi-private rooms designed for patient comfort and recovery.</p>
-          </div>
-           <div class="facility-card">
-            <div class="facility-icon"><i class="fas fa-ambulance"></i></div>
-            <h4>24/7 Emergency Room</h4>
-            <p>Fully staffed emergency department ready to handle any medical crisis.</p>
-          </div>
+          <div class="swiper-pagination"></div>
         </div>
       </div>
     </section>
 
-    <section class="gallery-section">
+    <section class="gallery-section" data-aos="fade-up">
       <div class="container">
         <h2>Our Gallery</h2>
         <div class="gallery-grid">
-          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 1" /></div>
-          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1579684385127-6abfec45c28e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 2" /></div>
-          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 3" /></div>
-          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1580281657527-218f134551a2?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 4" /></div>
+          <a href="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="gallery-item"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 1" /></a>
+          <a href="https://images.unsplash.com/photo-1579684385127-6abfec45c28e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="gallery-item"><img src="https://images.unsplash.com/photo-1579684385127-6abfec45c28e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 2" /></a>
+          <a href="https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="gallery-item"><img src="https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 3" /></a>
+          <a href="https://images.unsplash.com/photo-1580281657527-218f134551a2?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="gallery-item"><img src="https://images.unsplash.com/photo-1580281657527-218f134551a2?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 4" /></a>
         </div>
       </div>
     </section>
 
-    <section class="certifications-section">
+    <section class="certifications-section" data-aos="fade-up">
       <div class="container">
         <h2>Certifications & Achievements</h2>
         <ul class="certifications-list">
-          <li><i class="fas fa-award"></i> NABH Accredited Hospital</li>
-          <li><i class="fas fa-trophy"></i> Best Multi-specialty Hospital Award 2023</li>
-          <li><i class="fas fa-certificate"></i> ISO 9001:2015 Certified</li>
-          <li><i class="fas fa-star"></i> 5-Star Rating for Patient Safety</li>
+          <li>
+            <div class="logo-container"><img src="https://logoipsum.com/logo/logo-1.svg" alt="NABH Logo"></div>
+            <span class="cert-text">NABH Accredited Hospital</span>
+          </li>
+          <li>
+            <div class="logo-container"><img src="https://logoipsum.com/logo/logo-2.svg" alt="Award Logo"></div>
+            <span class="cert-text">Best Multi-specialty Hospital Award 2023</span>
+          </li>
+          <li>
+            <div class="logo-container"><img src="https://logoipsum.com/logo/logo-3.svg" alt="ISO Logo"></div>
+            <span class="cert-text">ISO 9001:2015 Certified</span>
+          </li>
+          <li>
+            <div class="logo-container"><img src="https://logoipsum.com/logo/logo-4.svg" alt="Star Logo"></div>
+            <span class="cert-text">5-Star Rating for Patient Safety</span>
+          </li>
         </ul>
+      </div>
+    </section>
+
+    <section class="media-mentions-section" data-aos="fade-up">
+      <div class="container">
+        <h2>In the News</h2>
+        <div class="media-grid">
+          <div class="media-card">
+            <h3>Times of India</h3>
+            <p>"Laksh Hospital sets a new benchmark in patient care..."</p>
+            <a href="#">Read More</a>
+          </div>
+          <div class="media-card">
+            <h3>The Hindu</h3>
+            <p>"The new cardiology wing at Laksh Hospital is a game-changer for the region..."</p>
+            <a href="#">Read More</a>
+          </div>
+          <div class="media-card">
+            <h3>India Today</h3>
+            <p>"A look inside the state-of-the-art facilities at Laksh Hospital..."</p>
+            <a href="#">Read More</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -228,5 +332,31 @@
     </div>
   </footer>
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.1.0/simple-lightbox.min.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    AOS.init();
+    var lightbox = new SimpleLightbox('.gallery-grid a');
+    var infrastructureSwiper = new Swiper('.infrastructure-slider', {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 40,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 50,
+        },
+      }
+    });
+  </script>
 </body>
 </html>
