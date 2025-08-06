@@ -22,9 +22,13 @@
     .header nav ul li a { color: white; text-decoration: none; font-size: 1rem; }
     .header nav ul li a:hover { text-decoration: underline; }
 
+    /* Hero Banner */
+    .hero-banner { background-image: url('https://images.unsplash.com/photo-1579684385127-6abfec45c28e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-size: cover; background-position: center; height: 50vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; }
+    .hero-content { background-color: rgba(0, 51, 102, 0.7); padding: 2rem 4rem; border-radius: 10px; }
+    .hero-content h1 { font-size: 3rem; margin-bottom: 1rem; }
+    .hero-content p { font-size: 1.2rem; }
+
     /* Doctors Page Specific Styles */
-    .doctors-header { background-color: #003366; color: white; padding: 4rem 0; text-align: center; }
-    .doctors-header h1 { font-size: 3rem; margin-bottom: 0.5rem; }
     .doctors-list-section { padding: 4rem 0; background-color: #F8F9FA; }
     .doctors-list-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
     @media (min-width: 992px) { .doctors-list-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -71,8 +75,8 @@
   </header>
 
   <main>
-    <section class="doctors-header">
-      <div class="container">
+    <section class="hero-banner">
+      <div class="hero-content">
         <h1>Our Expert Team</h1>
         <p>Meet the dedicated professionals behind our success.</p>
       </div>
