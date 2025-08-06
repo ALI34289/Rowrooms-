@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laksh Hospital - Home</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <style>
+    /* General Styles */
+    body { font-family: 'Open Sans', sans-serif; margin: 0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
+
+    /* Header */
+    .header { background-color: #003366; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+    .logo a { color: white; text-decoration: none; font-size: 1.5rem; font-weight: bold; }
+    .header nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
+    .header nav ul li { margin-left: 2rem; }
+    .header nav ul li a { color: white; text-decoration: none; font-size: 1rem; }
+    .header nav ul li a:hover { text-decoration: underline; }
+
+    /* Hero Banner */
+    .hero-banner { background-image: url('https://images.unsplash.com/photo-1538108149393-fbbd81895907?q=80&w=2128&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-size: cover; background-position: center; height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; }
+    .hero-content { background-color: rgba(0, 51, 102, 0.7); padding: 2rem 4rem; border-radius: 10px; }
+    .hero-content h1 { font-size: 3rem; margin-bottom: 1rem; }
+    .hero-content p { font-size: 1.2rem; margin-bottom: 2rem; }
+    .cta-button { background-color: #00BFFF; color: white; padding: 1rem 2rem; border: none; border-radius: 5px; font-size: 1.2rem; font-weight: bold; cursor: pointer; transition: background-color 0.3s; }
+    .cta-button:hover { background-color: #009acd; }
+
+    /* Home About */
+    .home-about { padding: 4rem 0; text-align: center; background-color: #F8F9FA; }
+    .home-about h2 { font-size: 2.5rem; margin-bottom: 1rem; color: #003366; }
+    .home-about p { font-size: 1.1rem; line-height: 1.8; max-width: 800px; margin: 0 auto; }
+
+    /* Home Services */
+    .home-services { padding: 4rem 0; background-color: #FFFFFF; }
+    .home-services h2 { text-align: center; font-size: 2.5rem; margin-bottom: 2rem; color: #003366; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .service-card { background-color: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 2rem; text-align: center; transition: transform 0.3s, box-shadow 0.3s; }
+    .service-card:hover { transform: translateY(-10px); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
+    .service-icon { font-size: 3rem; color: #00BFFF; margin-bottom: 1.5rem; }
+    .service-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: #003366; }
+    .service-card p { font-size: 1rem; line-height: 1.6; }
+
+    /* Why Choose Us */
+    .why-choose-us { padding: 4rem 0; background-color: #F8F9FA; }
+    .why-choose-us-content { display: flex; align-items: center; gap: 4rem; }
+    .why-choose-us-image { flex: 1; }
+    .why-choose-us-image img { width: 100%; border-radius: 10px; }
+    .why-choose-us-text { flex: 1; }
+    .why-choose-us-text h2 { font-size: 2.5rem; margin-bottom: 2rem; color: #003366; }
+    .why-choose-us-text ul { list-style: none; padding: 0; }
+    .why-choose-us-text ul li { font-size: 1.2rem; margin-bottom: 1.5rem; display: flex; align-items: center; }
+    .why-choose-us-text ul li i { color: #00BFFF; font-size: 1.5rem; margin-right: 1rem; }
+
+    /* Doctors Preview */
+    .doctors-preview-section { padding: 4rem 0; background-color: #FFFFFF; }
+    .doctors-preview-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 2rem; color: #003366; }
+    .doctors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .doctor-preview-card { background-color: #ffffff; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); text-align: center; padding: 2rem; transition: transform 0.3s, box-shadow 0.3s; }
+    .doctor-preview-card:hover { transform: translateY(-10px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+    .doctor-image { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; border: 5px solid #F8F9FA; }
+    .doctor-preview-card h4 { font-size: 1.4rem; color: #003366; margin-bottom: 0.5rem; }
+    .doctor-specialization { color: #00BFFF; font-weight: bold; margin-bottom: 0.5rem; }
+    .doctor-experience { color: #555; font-size: 0.9rem; }
+
+    /* Emergency Call Banner */
+    .emergency-call-banner { background-color: #003366; color: white; text-align: center; padding: 3rem 0; }
+    .emergency-call-banner h3 { font-size: 1.5rem; font-weight: normal; margin-bottom: 1rem; }
+    .emergency-call-banner h2 { font-size: 3rem; margin-bottom: 2rem; }
+
+    /* Footer */
+    .footer { background: #003366; color: #d3d3d3; padding: 30px; }
+    .footer .footer-content { display: flex; flex-wrap: wrap; }
+    .footer .footer-section { flex: 1; padding: 25px; }
+    .footer h2 { color: white; }
+    .footer .about .contact span { display: block; margin-bottom: 8px; }
+    .footer .socials a { border: 1px solid gray; width: 45px; height: 41px; padding-top: 5px; margin-right: 5px; text-align: center; display: inline-block; font-size: 1.3em; border-radius: 5px; color: #d3d3d3; }
+    .footer .links ul { list-style: none; padding: 0; }
+    .footer .links ul a { display: block; margin-bottom: 10px; color: #d3d3d3; text-decoration: none; }
+    .footer .contact-form .text-input { background: #272727; color: #bebdbd; margin-bottom: 10px; line-height: 1.5rem; padding: .9rem 1.4rem; border: none; width: 100%; }
+    .footer .contact-form .btn { float: right; background: #00BFFF; color: white; }
+    .footer-bottom { background: #002244; color: #686868; height: 50px; text-align: center; padding-top: 20px; }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">
+      <a href="index.html">Laksh Hospital</a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Our Services</a></li>
+        <li><a href="doctors.html">Doctors</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-banner">
+      <div class="hero-content">
+        <h1>Providing the best medical care</h1>
+        <p>Compassionate care, close to home. Your health is our priority.</p>
+        <button class="cta-button">Book Appointment</button>
+      </div>
+    </section>
+
+    <section class="home-about">
+      <div class="container">
+        <h2>Welcome to Laksh Hospital</h2>
+        <p>Laksh Hospital has been a beacon of hope and healing in our community for over two decades. We are dedicated to providing state-of-the-art medical care with a compassionate touch. Our expert team of doctors, nurses, and staff are committed to your well-being.</p>
+      </div>
+    </section>
+
+    <section class="home-services">
+      <div class="container">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-heartbeat"></i></div>
+            <h3>Cardiology</h3>
+            <p>Expert care for your heart. We offer a full range of diagnostic and therapeutic services.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-bone"></i></div>
+            <h3>Orthopedics</h3>
+            <p>Comprehensive care for bone and joint issues, from fractures to joint replacements.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-baby"></i></div>
+            <h3>Pediatrics</h3>
+            <p>Specialized medical care for infants, children, and adolescents.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      <section class="why-choose-us">
+        <div class="container">
+          <div class="why-choose-us-content">
+            <div class="why-choose-us-image">
+              <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=2148&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Doctor with patient">
+            </div>
+            <div class="why-choose-us-text">
+              <h2>Why Choose Us?</h2>
+              <ul>
+                <li><i class="fas fa-user-md"></i> Experienced Doctors</li>
+                <li><i class="fas fa-pills"></i> Advanced Technology</li>
+                <li><i class="fas fa-ambulance"></i> 24/7 Emergency Services</li>
+                <li><i class="fas fa-heart"></i> Patient-Centric Care</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="doctors-preview-section">
+        <div class="container">
+          <h2>Meet Our Doctors</h2>
+          <div class="doctors-grid">
+            <div class="doctor-preview-card">
+              <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Dr. Ravi Sharma" class="doctor-image">
+              <h4>Dr. Ravi Sharma</h4>
+              <p class="doctor-specialization">Cardiologist</p>
+              <p class="doctor-experience">15 years of experience</p>
+            </div>
+            <div class="doctor-preview-card">
+              <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Dr. Sunita Patel" class="doctor-image">
+              <h4>Dr. Sunita Patel</h4>
+              <p class="doctor-specialization">Neurologist</p>
+              <p class="doctor-experience">12 years of experience</p>
+            </div>
+            <div class="doctor-preview-card">
+              <img src="https://randomuser.me/api/portraits/men/24.jpg" alt="Dr. Amit Singh" class="doctor-image">
+              <h4>Dr. Amit Singh</h4>
+              <p class="doctor-specialization">Orthopedic Surgeon</p>
+              <p class="doctor-experience">18 years of experience</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="emergency-call-banner">
+        <div class="container">
+          <h3>In case of emergency, call us immediately</h3>
+          <h2>+91 123 456 7890</h2>
+          <button class="cta-button">Call Now</button>
+        </div>
+      </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section about">
+        <h2 class="logo-text">Laksh Hospital</h2>
+        <p>Providing compassionate and quality healthcare for over 20 years.</p>
+        <div class="contact">
+          <span><i class="fas fa-phone"></i> &nbsp; 123-456-789</span>
+          <span><i class="fas fa-envelope"></i> &nbsp; info@lakshhospital.com</span>
+        </div>
+        <div class="socials">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-section links">
+        <h2>Quick Links</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="doctors.html">Doctors</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-section contact-form">
+        <h2>Contact us</h2>
+        <form action="#">
+          <input type="email" name="email" class="text-input contact-input" placeholder="Your email address...">
+          <textarea rows="4" name="message" class="text-input contact-input" placeholder="Your message..."></textarea>
+          <button type="submit" class="btn btn-big contact-btn">Send</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; lakshhospital.com | Designed by Jules
+    </div>
+  </footer>
+
+</body>
+</html>

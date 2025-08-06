@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laksh Hospital - About Us</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <style>
+    /* General Styles */
+    body { font-family: 'Open Sans', sans-serif; margin: 0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
+
+    /* Header */
+    .header { background-color: #003366; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+    .logo a { color: white; text-decoration: none; font-size: 1.5rem; font-weight: bold; }
+    .header nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
+    .header nav ul li { margin-left: 2rem; }
+    .header nav ul li a { color: white; text-decoration: none; font-size: 1rem; }
+    .header nav ul li a:hover { text-decoration: underline; }
+
+    /* About Page Specific Styles */
+    .about-header { background-color: #003366; color: white; padding: 4rem 0; text-align: center; }
+    .about-header h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+    .hospital-story { padding: 4rem 0; background-color: #FFFFFF; }
+    .story-content { display: flex; align-items: center; gap: 4rem; }
+    .story-text { flex: 1; }
+    .story-text h2 { font-size: 2.5rem; color: #003366; margin-bottom: 1rem; }
+    .story-image { flex: 1; }
+    .story-image img { width: 100%; border-radius: 10px; }
+    .mission-vision { padding: 4rem 0; background-color: #F8F9FA; }
+    .mission-vision-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .mission-card, .vision-card, .values-card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+    .mission-vision h3 { font-size: 1.8rem; color: #00BFFF; margin-bottom: 1rem; }
+    .values-card ul { list-style: none; padding: 0; }
+    .values-card li { margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .values-card li::before { content: '✓'; color: #00BFFF; margin-right: 10px; font-weight: bold; }
+    .infrastructure-section { padding: 4rem 0; background-color: #FFFFFF; }
+    .infrastructure-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 2rem; color: #003366; }
+    .facilities-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+    .facility-card { background-color: #ffffff; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); text-align: center; padding: 2rem; border-left: 5px solid #00BFFF; }
+    .facility-icon { font-size: 2.5rem; color: #003366; margin-bottom: 1.5rem; }
+    .facility-card h4 { font-size: 1.3rem; color: #003366; margin-bottom: 1rem; }
+    .gallery-section { padding: 4rem 0; background-color: #F8F9FA; }
+    .gallery-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 2rem; color: #003366; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; transition: transform 0.3s, box-shadow 0.3s; }
+    .gallery-item img:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+    .certifications-section { padding: 4rem 0; background-color: #FFFFFF; }
+    .certifications-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 2rem; color: #003366; }
+    .certifications-list { list-style: none; padding: 0; max-width: 800px; margin: 0 auto; text-align: center; }
+    .certifications-list li { font-size: 1.2rem; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; }
+    .certifications-list li i { color: #00BFFF; font-size: 1.5rem; margin-right: 1rem; }
+
+    /* Footer */
+    .footer { background: #003366; color: #d3d3d3; padding: 30px; }
+    .footer .footer-content { display: flex; flex-wrap: wrap; }
+    .footer .footer-section { flex: 1; padding: 25px; }
+    .footer h2 { color: white; }
+    .footer .about .contact span { display: block; margin-bottom: 8px; }
+    .footer .socials a { border: 1px solid gray; width: 45px; height: 41px; padding-top: 5px; margin-right: 5px; text-align: center; display: inline-block; font-size: 1.3em; border-radius: 5px; color: #d3d3d3; }
+    .footer .links ul { list-style: none; padding: 0; }
+    .footer .links ul a { display: block; margin-bottom: 10px; color: #d3d3d3; text-decoration: none; }
+    .footer .contact-form .text-input { background: #272727; color: #bebdbd; margin-bottom: 10px; line-height: 1.5rem; padding: .9rem 1.4rem; border: none; width: 100%; }
+    .footer .contact-form .btn { float: right; background: #00BFFF; color: white; }
+    .footer-bottom { background: #002244; color: #686868; height: 50px; text-align: center; padding-top: 20px; }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">
+      <a href="index.html">Laksh Hospital</a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Our Services</a></li>
+        <li><a href="doctors.html">Doctors</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="about-header">
+      <div class="container">
+        <h1>About Laksh Hospital</h1>
+        <p>A legacy of care, a future of health.</p>
+      </div>
+    </section>
+
+    <section class="hospital-story">
+      <div class="container">
+        <div class="story-content">
+          <div class="story-text">
+            <h2>Our History</h2>
+            <p>Founded in 2002, Laksh Hospital started as a small clinic with a big heart. Our founder, Dr. Alok Sharma, envisioned a healthcare facility that combined medical excellence with a deep sense of compassion. Over the years, we have grown into a multi-specialty hospital, but our core values remain the same.</p>
+          </div>
+          <div class="story-image">
+            <img src="https://images.unsplash.com/photo-1581091222233-1097e348a66a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hospital Building" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mission-vision">
+      <div class="container">
+        <div class="mission-vision-grid">
+          <div class="mission-card">
+            <h3>Our Mission</h3>
+            <p>To provide accessible, affordable, and high-quality healthcare services to our community, fostering an environment of trust and healing.</p>
+          </div>
+          <div class="vision-card">
+            <h3>Our Vision</h3>
+            <p>To be the leading healthcare provider in the region, recognized for our clinical excellence, patient-centric approach, and commitment to innovation.</p>
+          </div>
+          <div class="values-card">
+            <h3>Our Values</h3>
+            <ul>
+              <li>Compassion</li>
+              <li>Excellence</li>
+              <li>Integrity</li>
+              <li>Teamwork</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="infrastructure-section">
+      <div class="container">
+        <h2>Infrastructure & Facilities</h2>
+        <div class="facilities-grid">
+          <div class="facility-card">
+            <div class="facility-icon"><i class="fas fa-procedures"></i></div>
+            <h4>Modern Operation Theaters</h4>
+            <p>Equipped with the latest technology for a wide range of surgical procedures.</p>
+          </div>
+          <div class="facility-card">
+            <div class="facility-icon"><i class="fas fa-vials"></i></div>
+            <h4>Advanced Laboratory</h4>
+            <p>In-house laboratory for accurate and timely diagnostic testing.</p>
+          </div>
+          <div class="facility-card">
+            <div class="facility-icon"><i class="fas fa-bed"></i></div>
+            <h4>Comfortable Patient Rooms</h4>
+            <p>Private and semi-private rooms designed for patient comfort and recovery.</p>
+          </div>
+           <div class="facility-card">
+            <div class="facility-icon"><i class="fas fa-ambulance"></i></div>
+            <h4>24/7 Emergency Room</h4>
+            <p>Fully staffed emergency department ready to handle any medical crisis.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-section">
+      <div class="container">
+        <h2>Our Gallery</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 1" /></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1579684385127-6abfec45c28e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 2" /></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 3" /></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1580281657527-218f134551a2?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gallery Image 4" /></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="certifications-section">
+      <div class="container">
+        <h2>Certifications & Achievements</h2>
+        <ul class="certifications-list">
+          <li><i class="fas fa-award"></i> NABH Accredited Hospital</li>
+          <li><i class="fas fa-trophy"></i> Best Multi-specialty Hospital Award 2023</li>
+          <li><i class="fas fa-certificate"></i> ISO 9001:2015 Certified</li>
+          <li><i class="fas fa-star"></i> 5-Star Rating for Patient Safety</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section about">
+        <h2 class="logo-text">Laksh Hospital</h2>
+        <p>Providing compassionate and quality healthcare for over 20 years.</p>
+        <div class="contact">
+          <span><i class="fas fa-phone"></i> &nbsp; 123-456-789</span>
+          <span><i class="fas fa-envelope"></i> &nbsp; info@lakshhospital.com</span>
+        </div>
+        <div class="socials">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-section links">
+        <h2>Quick Links</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="doctors.html">Doctors</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-section contact-form">
+        <h2>Contact us</h2>
+        <form action="#">
+          <input type="email" name="email" class="text-input contact-input" placeholder="Your email address...">
+          <textarea rows="4" name="message" class="text-input contact-input" placeholder="Your message..."></textarea>
+          <button type="submit" class="btn btn-big contact-btn">Send</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; lakshhospital.com | Designed by Jules
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laksh Hospital - Our Doctors</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <style>
+    /* General Styles */
+    body { font-family: 'Open Sans', sans-serif; margin: 0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
+
+    /* Header */
+    .header { background-color: #003366; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+    .logo a { color: white; text-decoration: none; font-size: 1.5rem; font-weight: bold; }
+    .header nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
+    .header nav ul li { margin-left: 2rem; }
+    .header nav ul li a { color: white; text-decoration: none; font-size: 1rem; }
+    .header nav ul li a:hover { text-decoration: underline; }
+
+    /* Doctors Page Specific Styles */
+    .doctors-header { background-color: #003366; color: white; padding: 4rem 0; text-align: center; }
+    .doctors-header h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+    .doctors-list-section { padding: 4rem 0; background-color: #F8F9FA; }
+    .doctors-list-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+    @media (min-width: 992px) { .doctors-list-grid { grid-template-columns: repeat(2, 1fr); } }
+    .doctor-profile-card { display: flex; background-color: #ffffff; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
+    .doctor-profile-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+    .doctor-profile-image { flex: 0 0 180px; }
+    .doctor-profile-image img { width: 100%; height: 100%; object-fit: cover; }
+    .doctor-profile-info { padding: 1.5rem; flex-grow: 1; }
+    .doctor-profile-info h3 { font-size: 1.6rem; color: #003366; margin: 0 0 0.5rem 0; }
+    .specialization { color: #00BFFF; font-weight: bold; font-size: 1.1rem; margin-bottom: 1rem; }
+    .qualifications, .experience { color: #555; margin-bottom: 0.5rem; }
+    .appointment-btn { background-color: #00BFFF; color: white; padding: 0.8rem 1.5rem; border: none; border-radius: 5px; font-size: 1rem; font-weight: bold; cursor: pointer; transition: background-color 0.3s; margin-top: 1rem; float: right; }
+    .appointment-btn:hover { background-color: #009acd; }
+
+    /* Footer */
+    .footer { background: #003366; color: #d3d3d3; padding: 30px; }
+    .footer .footer-content { display: flex; flex-wrap: wrap; }
+    .footer .footer-section { flex: 1; padding: 25px; }
+    .footer h2 { color: white; }
+    .footer .about .contact span { display: block; margin-bottom: 8px; }
+    .footer .socials a { border: 1px solid gray; width: 45px; height: 41px; padding-top: 5px; margin-right: 5px; text-align: center; display: inline-block; font-size: 1.3em; border-radius: 5px; color: #d3d3d3; }
+    .footer .links ul { list-style: none; padding: 0; }
+    .footer .links ul a { display: block; margin-bottom: 10px; color: #d3d3d3; text-decoration: none; }
+    .footer .contact-form .text-input { background: #272727; color: #bebdbd; margin-bottom: 10px; line-height: 1.5rem; padding: .9rem 1.4rem; border: none; width: 100%; }
+    .footer .contact-form .btn { float: right; background: #00BFFF; color: white; }
+    .footer-bottom { background: #002244; color: #686868; height: 50px; text-align: center; padding-top: 20px; }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">
+      <a href="index.html">Laksh Hospital</a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Our Services</a></li>
+        <li><a href="doctors.html">Doctors</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="doctors-header">
+      <div class="container">
+        <h1>Our Expert Team</h1>
+        <p>Meet the dedicated professionals behind our success.</p>
+      </div>
+    </section>
+
+    <section class="doctors-list-section">
+      <div class="container">
+        <div class="doctors-list-grid">
+          <div class="doctor-profile-card">
+            <div class="doctor-profile-image"><img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Dr. Ravi Sharma"></div>
+            <div class="doctor-profile-info">
+              <h3>Dr. Ravi Sharma</h3>
+              <p class="specialization">Cardiologist</p>
+              <p class="qualifications">MD, FACC</p>
+              <p class="experience">15 years of experience</p>
+              <button class="appointment-btn">Book Appointment</button>
+            </div>
+          </div>
+          <div class="doctor-profile-card">
+            <div class="doctor-profile-image"><img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Dr. Sunita Patel"></div>
+            <div class="doctor-profile-info">
+              <h3>Dr. Sunita Patel</h3>
+              <p class="specialization">Neurologist</p>
+              <p class="qualifications">MD, DM (Neurology)</p>
+              <p class="experience">12 years of experience</p>
+              <button class="appointment-btn">Book Appointment</button>
+            </div>
+          </div>
+          <div class="doctor-profile-card">
+            <div class="doctor-profile-image"><img src="https://randomuser.me/api/portraits/men/24.jpg" alt="Dr. Amit Singh"></div>
+            <div class="doctor-profile-info">
+              <h3>Dr. Amit Singh</h3>
+              <p class="specialization">Orthopedic Surgeon</p>
+              <p class="qualifications">MS (Orthopedics)</p>
+              <p class="experience">18 years of experience</p>
+              <button class="appointment-btn">Book Appointment</button>
+            </div>
+          </div>
+          <div class="doctor-profile-card">
+            <div class="doctor-profile-image"><img src="https://randomuser.me/api/portraits/women/25.jpg" alt="Dr. Priya Reddy"></div>
+            <div class="doctor-profile-info">
+              <h3>Dr. Priya Reddy</h3>
+              <p class="specialization">Pediatrician</p>
+              <p class="qualifications">MD (Pediatrics)</p>
+              <p class="experience">10 years of experience</p>
+              <button class="appointment-btn">Book Appointment</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section about">
+        <h2 class="logo-text">Laksh Hospital</h2>
+        <p>Providing compassionate and quality healthcare for over 20 years.</p>
+        <div class="contact">
+          <span><i class="fas fa-phone"></i> &nbsp; 123-456-789</span>
+          <span><i class="fas fa-envelope"></i> &nbsp; info@lakshhospital.com</span>
+        </div>
+        <div class="socials">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-section links">
+        <h2>Quick Links</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="doctors.html">Doctors</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-section contact-form">
+        <h2>Contact us</h2>
+        <form action="#">
+          <input type="email" name="email" class="text-input contact-input" placeholder="Your email address...">
+          <textarea rows="4" name="message" class="text-input contact-input" placeholder="Your message..."></textarea>
+          <button type="submit" class="btn btn-big contact-btn">Send</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; lakshhospital.com | Designed by Jules
+    </div>
+  </footer>
+
+</body>
+</html>

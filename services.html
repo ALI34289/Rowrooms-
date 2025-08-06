@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laksh Hospital - Our Services</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <style>
+    /* General Styles */
+    body { font-family: 'Open Sans', sans-serif; margin: 0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
+
+    /* Header */
+    .header { background-color: #003366; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+    .logo a { color: white; text-decoration: none; font-size: 1.5rem; font-weight: bold; }
+    .header nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
+    .header nav ul li { margin-left: 2rem; }
+    .header nav ul li a { color: white; text-decoration: none; font-size: 1rem; }
+    .header nav ul li a:hover { text-decoration: underline; }
+
+    /* Services Page Specific Styles */
+    .services-header { background-color: #003366; color: white; padding: 4rem 0; text-align: center; }
+    .services-header h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+    .services-list-section { padding: 4rem 0; background-color: #F8F9FA; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .service-card { background-color: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 2rem; text-align: center; transition: transform 0.3s, box-shadow 0.3s; }
+    .service-card:hover { transform: translateY(-10px); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
+    .service-icon { font-size: 3rem; color: #00BFFF; margin-bottom: 1.5rem; }
+    .service-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: #003366; }
+    .service-card p { font-size: 1rem; line-height: 1.6; }
+
+    /* Footer */
+    .footer { background: #003366; color: #d3d3d3; padding: 30px; }
+    .footer .footer-content { display: flex; flex-wrap: wrap; }
+    .footer .footer-section { flex: 1; padding: 25px; }
+    .footer h2 { color: white; }
+    .footer .about .contact span { display: block; margin-bottom: 8px; }
+    .footer .socials a { border: 1px solid gray; width: 45px; height: 41px; padding-top: 5px; margin-right: 5px; text-align: center; display: inline-block; font-size: 1.3em; border-radius: 5px; color: #d3d3d3; }
+    .footer .links ul { list-style: none; padding: 0; }
+    .footer .links ul a { display: block; margin-bottom: 10px; color: #d3d3d3; text-decoration: none; }
+    .footer .contact-form .text-input { background: #272727; color: #bebdbd; margin-bottom: 10px; line-height: 1.5rem; padding: .9rem 1.4rem; border: none; width: 100%; }
+    .footer .contact-form .btn { float: right; background: #00BFFF; color: white; }
+    .footer-bottom { background: #002244; color: #686868; height: 50px; text-align: center; padding-top: 20px; }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">
+      <a href="index.html">Laksh Hospital</a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Our Services</a></li>
+        <li><a href="doctors.html">Doctors</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="services-header">
+      <div class="container">
+        <h1>Our Services</h1>
+        <p>Comprehensive medical care across a wide range of specialties.</p>
+      </div>
+    </section>
+
+    <section class="services-list-section">
+      <div class="container">
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-heartbeat"></i></div>
+            <h3>Cardiology</h3>
+            <p>Expert care for your heart. We offer a full range of diagnostic and therapeutic services, including ECG, echocardiography, and stress tests.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-bone"></i></div>
+            <h3>Orthopedics</h3>
+            <p>Comprehensive care for bone and joint issues, from fractures and sprains to complex joint replacement surgeries.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-baby"></i></div>
+            <h3>Pediatrics</h3>
+            <p>Specialized and compassionate medical care for infants, children, and adolescents, focusing on their unique needs.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-brain"></i></div>
+            <h3>Neurology</h3>
+            <p>Diagnosis and treatment of disorders of the nervous system, including stroke, epilepsy, and multiple sclerosis.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-lungs"></i></div>
+            <h3>Pulmonology</h3>
+            <p>Care for respiratory system diseases, including asthma, COPD, and pneumonia, with advanced diagnostic tools.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-stomach"></i></div>
+            <h3>Gastroenterology</h3>
+            <p>Treatment for digestive system disorders, including GERD, IBS, and liver diseases, with endoscopic procedures.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section about">
+        <h2 class="logo-text">Laksh Hospital</h2>
+        <p>Providing compassionate and quality healthcare for over 20 years.</p>
+        <div class="contact">
+          <span><i class="fas fa-phone"></i> &nbsp; 123-456-789</span>
+          <span><i class="fas fa-envelope"></i> &nbsp; info@lakshhospital.com</span>
+        </div>
+        <div class="socials">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-section links">
+        <h2>Quick Links</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="doctors.html">Doctors</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-section contact-form">
+        <h2>Contact us</h2>
+        <form action="#">
+          <input type="email" name="email" class="text-input contact-input" placeholder="Your email address...">
+          <textarea rows="4" name="message" class="text-input contact-input" placeholder="Your message..."></textarea>
+          <button type="submit" class="btn btn-big contact-btn">Send</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; lakshhospital.com | Designed by Jules
+    </div>
+  </footer>
+
+</body>
+</html>
