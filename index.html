@@ -10,6 +10,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@700&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-XXXXXXXXXX'); // Replace with your Google Analytics ID
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -138,6 +147,14 @@
     .floating-cta { position: fixed; bottom: 25px; right: 25px; z-index: 1000; }
     .floating-cta .cta-button { background-color: #00BFFF; color: white; padding: 1rem 2rem; border: none; border-radius: 50px; font-size: 1.2rem; font-weight: bold; cursor: pointer; transition: background-color 0.3s, transform 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
     .floating-cta .cta-button:hover { background-color: #009acd; transform: scale(1.05); }
+
+    /* Modal Styles */
+    .modal { display: none; position: fixed; z-index: 1001; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4); }
+    .modal-content { background-color: #fefefe; margin: 10% auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 700px; border-radius: 10px; position: relative; }
+    .close-btn { color: #aaa; float: right; font-size: 28px; font-weight: bold; }
+    .close-btn:hover, .close-btn:focus { color: black; text-decoration: none; cursor: pointer; }
+    .modal-header h2 { color: #003366; }
+    .modal-body img { max-width: 100%; border-radius: 10px; margin-bottom: 1rem; }
 
     /* Footer */
     .footer { background: #003366; color: #d3d3d3; padding: 30px; }
@@ -287,18 +304,21 @@
               <h4>Dr. Ravi Sharma</h4>
               <p class="doctor-specialization">Cardiologist</p>
               <p class="doctor-experience">15 years of experience</p>
+            <button class="appointment-btn" data-modal="ravi-sharma-modal">View Profile</button>
             </div>
             <div class="doctor-preview-card" data-aos="fade-up" data-aos-delay="200">
               <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Dr. Sunita Patel" class="doctor-image">
               <h4>Dr. Sunita Patel</h4>
               <p class="doctor-specialization">Neurologist</p>
               <p class="doctor-experience">12 years of experience</p>
+            <button class="appointment-btn" data-modal="sunita-patel-modal">View Profile</button>
             </div>
             <div class="doctor-preview-card" data-aos="fade-up" data-aos-delay="300">
               <img src="https://randomuser.me/api/portraits/men/24.jpg" alt="Dr. Amit Singh" class="doctor-image">
               <h4>Dr. Amit Singh</h4>
               <p class="doctor-specialization">Orthopedic Surgeon</p>
               <p class="doctor-experience">18 years of experience</p>
+            <button class="appointment-btn" data-modal="amit-singh-modal">View Profile</button>
             </div>
           </div>
         </div>
@@ -393,6 +413,52 @@
     </div>
   </footer>
 
+  <!-- Modals -->
+  <div id="ravi-sharma-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Dr. Ravi Sharma</h2>
+      <p><strong>Specialization:</strong> Cardiologist</p>
+      <p><strong>Qualifications:</strong> MD, FACC</p>
+      <p><strong>Experience:</strong> 15 years</p>
+      <p><strong>Schedule:</strong> Mon-Fri, 9am-5pm</p>
+      <h4>Reviews:</h4>
+      <ul>
+        <li>"Dr. Sharma is a very caring and knowledgeable doctor." - Patient A</li>
+        <li>"I am very happy with the treatment I received from Dr. Sharma." - Patient B</li>
+      </ul>
+    </div>
+  </div>
+  <div id="sunita-patel-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Dr. Sunita Patel</h2>
+      <p><strong>Specialization:</strong> Neurologist</p>
+      <p><strong>Qualifications:</strong> MD, DM (Neurology)</p>
+      <p><strong>Experience:</strong> 12 years</p>
+      <p><strong>Schedule:</strong> Tue-Sat, 10am-6pm</p>
+      <h4>Reviews:</h4>
+      <ul>
+        <li>"Dr. Patel was very thorough and explained everything clearly." - Patient C</li>
+      </ul>
+    </div>
+  </div>
+  <div id="amit-singh-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Dr. Amit Singh</h2>
+      <p><strong>Specialization:</strong> Orthopedic Surgeon</p>
+      <p><strong>Qualifications:</strong> MS (Orthopedics)</p>
+      <p><strong>Experience:</strong> 18 years</p>
+      <p><strong>Schedule:</strong> Mon, Wed, Fri, 8am-4pm</p>
+      <h4>Reviews:</h4>
+      <ul>
+        <li>"Dr. Singh is a miracle worker! My new knee feels great." - Patient D</li>
+      </ul>
+    </div>
+  </div>
+
+
   <div class="floating-cta">
     <a href="contact.html" class="cta-button">Book Appointment</a>
   </div>
@@ -468,6 +534,33 @@
     });
 
     observer.observe(document.querySelector('#stats-counter'));
+
+    // Modal script
+    var modals = document.querySelectorAll('.modal');
+    var btns = document.querySelectorAll('.appointment-btn');
+    var spans = document.querySelectorAll('.close-btn');
+
+    btns.forEach(btn => {
+      btn.onclick = function() {
+        var modal = document.getElementById(btn.getAttribute('data-modal'));
+        modal.style.display = "block";
+      }
+    });
+
+    spans.forEach(span => {
+      span.onclick = function() {
+        var modal = span.closest('.modal');
+        modal.style.display = "none";
+      }
+    });
+
+    window.onclick = function(event) {
+      modals.forEach(modal => {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      });
+    }
   </script>
 </body>
 </html>
