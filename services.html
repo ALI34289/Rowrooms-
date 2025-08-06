@@ -36,6 +36,49 @@
     .service-icon { font-size: 3rem; color: #00BFFF; margin-bottom: 1.5rem; }
     .service-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: #003366; }
     .service-card p { font-size: 1rem; line-height: 1.6; }
+    .service-card .learn-more-btn { background-color: #00BFFF; color: white; padding: 0.5rem 1rem; border: none; border-radius: 5px; font-size: 0.9rem; font-weight: bold; cursor: pointer; transition: background-color 0.3s; margin-top: 1rem; }
+    .service-card .learn-more-btn:hover { background-color: #009acd; }
+
+    /* Mega Grid Layout */
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem; }
+    .service-card { padding: 1.5rem; }
+    .service-icon { font-size: 2.5rem; }
+    .service-card h3 { font-size: 1.2rem; }
+
+    /* Filter/Search Styles */
+    .service-filters { margin-bottom: 2rem; text-align: center; }
+    .service-filters input { padding: 0.8rem; width: 50%; max-width: 400px; border: 1px solid #ddd; border-radius: 5px; }
+    .service-filters .filter-buttons { margin-top: 1rem; }
+    .service-filters button { background-color: #003366; color: white; padding: 0.5rem 1rem; border: none; border-radius: 5px; cursor: pointer; margin: 0 0.5rem; }
+    .service-filters button.active { background-color: #00BFFF; }
+
+    /* FAQ Section */
+    .faq-section { padding: 4rem 0; background-color: #FFFFFF; }
+    .faq-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 2rem; color: #003366; }
+    .faq-container { max-width: 800px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid #ddd; }
+    .faq-item summary { font-size: 1.2rem; font-weight: bold; padding: 1.5rem 0; cursor: pointer; position: relative; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: '+'; position: absolute; right: 0; }
+    .faq-item[open] summary::after { content: '-'; }
+    .faq-item div { padding: 1.5rem 0; }
+
+    /* Comparison Table */
+    .comparison-section { padding: 4rem 0; background-color: #F8F9FA; }
+    .comparison-section h2 { text-align: center; font-size: 2.5rem; margin-bottom: 2rem; color: #003366; }
+    .comparison-table { width: 100%; max-width: 1000px; margin: 0 auto; border-collapse: collapse; }
+    .comparison-table th, .comparison-table td { padding: 1rem; text-align: center; border: 1px solid #ddd; }
+    .comparison-table th { background-color: #003366; color: white; }
+    .comparison-table .feature { text-align: left; font-weight: bold; }
+    .comparison-table .tick { color: green; font-weight: bold; }
+
+    /* Modal Styles */
+    .modal { display: none; position: fixed; z-index: 1001; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4); }
+    .modal-content { background-color: #fefefe; margin: 10% auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 700px; border-radius: 10px; position: relative; }
+    .close-btn { color: #aaa; float: right; font-size: 28px; font-weight: bold; }
+    .close-btn:hover, .close-btn:focus { color: black; text-decoration: none; cursor: pointer; }
+    .modal-header h2 { color: #003366; }
+    .modal-body img { max-width: 100%; border-radius: 10px; margin-bottom: 1rem; }
 
     /* Footer */
     .footer { background: #003366; color: #d3d3d3; padding: 30px; }
@@ -78,41 +121,213 @@
 
     <section class="services-list-section">
       <div class="container">
+        <div class="service-filters">
+          <input type="text" id="service-search" placeholder="Search for a service...">
+          <div class="filter-buttons">
+            <button class="filter-btn active" data-category="all">All</button>
+            <button class="filter-btn" data-category="general">General</button>
+            <button class="filter-btn" data-category="specialty">Specialty</button>
+          </div>
+        </div>
         <div class="services-grid">
-          <div class="service-card">
+          <div class="service-card" data-category="specialty">
             <div class="service-icon"><i class="fas fa-heartbeat"></i></div>
             <h3>Cardiology</h3>
-            <p>Expert care for your heart. We offer a full range of diagnostic and therapeutic services, including ECG, echocardiography, and stress tests.</p>
+            <p>Expert care for your heart. We offer a full range of diagnostic and therapeutic services...</p>
+            <button class="learn-more-btn" data-modal="cardiology-modal">Learn More</button>
           </div>
-          <div class="service-card">
+          <div class="service-card" data-category="specialty">
             <div class="service-icon"><i class="fas fa-bone"></i></div>
             <h3>Orthopedics</h3>
-            <p>Comprehensive care for bone and joint issues, from fractures and sprains to complex joint replacement surgeries.</p>
+            <p>Comprehensive care for bone and joint issues, from fractures and sprains to complex joint...</p>
+            <button class="learn-more-btn" data-modal="orthopedics-modal">Learn More</button>
           </div>
-          <div class="service-card">
+          <div class="service-card" data-category="general">
             <div class="service-icon"><i class="fas fa-baby"></i></div>
             <h3>Pediatrics</h3>
-            <p>Specialized and compassionate medical care for infants, children, and adolescents, focusing on their unique needs.</p>
+            <p>Specialized and compassionate medical care for infants, children, and adolescents...</p>
+            <button class="learn-more-btn" data-modal="pediatrics-modal">Learn More</button>
           </div>
-          <div class="service-card">
+          <div class="service-card" data-category="specialty">
             <div class="service-icon"><i class="fas fa-brain"></i></div>
             <h3>Neurology</h3>
-            <p>Diagnosis and treatment of disorders of the nervous system, including stroke, epilepsy, and multiple sclerosis.</p>
+            <p>Diagnosis and treatment of disorders of the nervous system, including stroke, epilepsy...</p>
+            <button class="learn-more-btn" data-modal="neurology-modal">Learn More</button>
           </div>
-          <div class="service-card">
+          <div class="service-card" data-category="specialty">
             <div class="service-icon"><i class="fas fa-lungs"></i></div>
             <h3>Pulmonology</h3>
-            <p>Care for respiratory system diseases, including asthma, COPD, and pneumonia, with advanced diagnostic tools.</p>
+            <p>Care for respiratory system diseases, including asthma, COPD, and pneumonia...</p>
+            <button class="learn-more-btn" data-modal="pulmonology-modal">Learn More</button>
           </div>
-          <div class="service-card">
+          <div class="service-card" data-category="specialty">
             <div class="service-icon"><i class="fas fa-stomach"></i></div>
             <h3>Gastroenterology</h3>
-            <p>Treatment for digestive system disorders, including GERD, IBS, and liver diseases, with endoscopic procedures.</p>
+            <p>Treatment for digestive system disorders, including GERD, IBS, and liver diseases...</p>
+            <button class="learn-more-btn" data-modal="gastroenterology-modal">Learn More</button>
           </div>
         </div>
       </div>
     </section>
   </main>
+
+  <!-- Modals -->
+  <div id="cardiology-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <div class="modal-header">
+        <h2>Cardiology</h2>
+      </div>
+      <div class="modal-body">
+        <img src="https://images.unsplash.com/photo-1579684385127-6abfec45c28e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Cardiology">
+        <p>Expert care for your heart. We offer a full range of diagnostic and therapeutic services, including ECG, echocardiography, stress tests, and coronary angioplasty. Our team of experienced cardiologists is dedicated to providing the highest quality of care.</p>
+        <h4>Associated Doctors:</h4>
+        <ul>
+          <li>Dr. Ravi Sharma</li>
+          <li>Dr. Priya Reddy</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- Add other modals similarly -->
+  <div id="orthopedics-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <div class="modal-header">
+        <h2>Orthopedics</h2>
+      </div>
+      <div class="modal-body">
+        <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=2148&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Orthopedics">
+        <p>Comprehensive care for bone and joint issues, from fractures and sprains to complex joint replacement surgeries. Our orthopedic surgeons are leaders in their field.</p>
+        <h4>Associated Doctors:</h4>
+        <ul>
+          <li>Dr. Amit Singh</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="pediatrics-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <div class="modal-header">
+        <h2>Pediatrics</h2>
+      </div>
+      <div class="modal-body">
+        <img src="https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Pediatrics">
+        <p>Specialized and compassionate medical care for infants, children, and adolescents, focusing on their unique needs. We provide a child-friendly environment to make our young patients feel comfortable.</p>
+        <h4>Associated Doctors:</h4>
+        <ul>
+          <li>Dr. Priya Reddy</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="neurology-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <div class="modal-header">
+        <h2>Neurology</h2>
+      </div>
+      <div class="modal-body">
+        <p>Diagnosis and treatment of disorders of the nervous system, including stroke, epilepsy, and multiple sclerosis. Our neurology department is equipped with the latest diagnostic technology.</p>
+        <h4>Associated Doctors:</h4>
+        <ul>
+          <li>Dr. Sunita Patel</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="pulmonology-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <div class="modal-header">
+        <h2>Pulmonology</h2>
+      </div>
+      <div class="modal-body">
+        <p>Care for respiratory system diseases, including asthma, COPD, and pneumonia, with advanced diagnostic tools. We offer comprehensive pulmonary function testing.</p>
+      </div>
+    </div>
+  </div>
+  <div id="gastroenterology-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <div class="modal-header">
+        <h2>Gastroenterology</h2>
+      </div>
+      <div class="modal-body">
+        <p>Treatment for digestive system disorders, including GERD, IBS, and liver diseases, with endoscopic procedures. Our specialists provide personalized care plans.</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="faq-section">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-container">
+        <details class="faq-item">
+          <summary>How do I book an appointment?</summary>
+          <div>
+            <p>You can book an appointment by calling us at +91 123 456 7890 or by using the "Book Appointment" button on our website.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>What are the visiting hours?</summary>
+          <div>
+            <p>Our general visiting hours are from 4:00 PM to 6:00 PM every day. However, this may vary depending on the ward.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Do you accept insurance?</summary>
+          <div>
+            <p>Yes, we accept a wide range of insurance plans. Please contact our billing department for more information.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="comparison-section">
+    <div class="container">
+      <h2>Compare Our Care Plans</h2>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Basic Care</th>
+            <th>Premium Care</th>
+            <th>VIP Care</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="feature">Private Room</td>
+            <td>-</td>
+            <td class="tick">✓</td>
+            <td class="tick">✓</td>
+          </tr>
+          <tr>
+            <td class="feature">Dedicated Nurse</td>
+            <td>-</td>
+            <td>-</td>
+            <td class="tick">✓</td>
+          </tr>
+          <tr>
+            <td class="feature">Post-discharge Consultation</td>
+            <td>-</td>
+            <td class="tick">✓</td>
+            <td class="tick">✓</td>
+          </tr>
+          <tr>
+            <td class="feature">Dietician Support</td>
+            <td class="tick">✓</td>
+            <td class="tick">✓</td>
+            <td class="tick">✓</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
 
   <footer class="footer">
     <div class="footer-content">
@@ -153,5 +368,67 @@
     </div>
   </footer>
 
+  <script>
+    // Modal script
+    var modals = document.querySelectorAll('.modal');
+    var btns = document.querySelectorAll('.learn-more-btn');
+    var spans = document.querySelectorAll('.close-btn');
+
+    btns.forEach(btn => {
+      btn.onclick = function() {
+        var modal = document.getElementById(btn.getAttribute('data-modal'));
+        modal.style.display = "block";
+      }
+    });
+
+    spans.forEach(span => {
+      span.onclick = function() {
+        var modal = span.closest('.modal');
+        modal.style.display = "none";
+      }
+    });
+
+    window.onclick = function(event) {
+      modals.forEach(modal => {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      });
+    }
+
+    // Filter script
+    const searchInput = document.getElementById('service-search');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const serviceCards = document.querySelectorAll('.service-card');
+
+    const filterServices = () => {
+      const searchTerm = searchInput.value.toLowerCase();
+      const activeCategory = document.querySelector('.filter-btn.active').getAttribute('data-category');
+
+      serviceCards.forEach(card => {
+        const title = card.querySelector('h3').innerText.toLowerCase();
+        const category = card.getAttribute('data-category');
+
+        const searchMatch = title.includes(searchTerm);
+        const categoryMatch = activeCategory === 'all' || category === activeCategory;
+
+        if (searchMatch && categoryMatch) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    };
+
+    searchInput.addEventListener('keyup', filterServices);
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        filterServices();
+      });
+    });
+  </script>
 </body>
 </html>
