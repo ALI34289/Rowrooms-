@@ -33,13 +33,34 @@
     .contact-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; }
     @media (min-width: 992px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
     .contact-form-container h2, .contact-info-container h2 { font-size: 2rem; color: #003366; margin-bottom: 2rem; }
-    .contact-form input, .contact-form textarea { width: 100%; padding: 1rem; margin-bottom: 1rem; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem; }
+    .contact-form input, .contact-form textarea, .contact-form select { width: 100%; padding: 1rem; margin-bottom: 1rem; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem; }
     .contact-form textarea { resize: vertical; }
     .submit-btn { background-color: #00BFFF; color: white; padding: 1rem 2rem; border: none; border-radius: 5px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: background-color 0.3s; width: 100%; }
     .submit-btn:hover { background-color: #009acd; }
+
+    /* Emergency Section */
+    .emergency-section { background-color: #ffdddd; padding: 2rem; text-align: center; border-left: 5px solid #f44336; margin-bottom: 2rem; }
+    .emergency-section h2 { color: #f44336; margin-top: 0; }
+    .emergency-section .ambulance-btn { background-color: #f44336; color: white; padding: 1rem 2rem; border: none; border-radius: 5px; font-size: 1.2rem; font-weight: bold; cursor: pointer; }
+
+    /* Tabs */
+    .form-tabs { display: flex; margin-bottom: 2rem; border-bottom: 1px solid #ddd; }
+    .tab-link { padding: 1rem 2rem; cursor: pointer; background-color: #eee; border: none; font-size: 1.1rem; }
+    .tab-link.active { background-color: #003366; color: white; }
+    .form-content { display: none; }
+    .form-content.active { display: block; }
+
     .contact-info-item { display: flex; align-items: flex-start; margin-bottom: 1.5rem; font-size: 1.1rem; }
     .contact-info-item i { color: #00BFFF; font-size: 1.5rem; margin-right: 1.5rem; width: 25px; text-align: center; }
-    .map-container { margin-top: 2rem; border-radius: 10px; overflow: hidden; }
+    .map-container { margin-top: 2rem; border-radius: 10px; overflow: hidden; position: relative; }
+    .directions-btn { position: absolute; top: 10px; right: 10px; background-color: #003366; color: white; padding: 0.5rem 1rem; border: none; border-radius: 5px; cursor: pointer; }
+
+    /* Confirmation Popup */
+    #confirmation-popup { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #28a745; color: white; padding: 2rem; border-radius: 10px; z-index: 1002; text-align: center; }
+
+    /* WhatsApp Button */
+    .whatsapp-btn { background-color: #25D366; color: white; padding: 1rem 2rem; border: none; border-radius: 5px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: background-color 0.3s; width: 100%; text-align: center; display: block; text-decoration: none; margin-top: 1rem; }
+    .whatsapp-btn:hover { background-color: #128C7E; }
 
     /* Footer */
     .footer { background: #003366; color: #d3d3d3; padding: 30px; }
@@ -82,16 +103,46 @@
 
     <section class="contact-content-section">
       <div class="container">
+        <div class="emergency-section">
+          <h2>Emergency? Call us now!</h2>
+          <p>For immediate medical attention, call our emergency helpline at <strong>+91 987 654 3210</strong></p>
+          <button class="ambulance-btn">Book an Ambulance</button>
+        </div>
         <div class="contact-grid">
           <div class="contact-form-container">
-            <h2>Send us a Message</h2>
-            <form class="contact-form">
-              <input type="text" placeholder="Your Name" required>
-              <input type="email" placeholder="Your Email" required>
-              <input type="tel" placeholder="Your Phone Number">
-              <textarea rows="6" placeholder="Your Message" required></textarea>
-              <button type="submit" class="submit-btn">Send Message</button>
-            </form>
+            <div class="form-tabs">
+              <button class="tab-link active" data-tab="appointment-form">Book Appointment</button>
+              <button class="tab-link" data-tab="contact-form">Quick Contact</button>
+            </div>
+
+            <div id="appointment-form" class="form-content active">
+              <h2>Appointment Request</h2>
+              <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="tel" placeholder="Your Phone Number">
+                <input type="date" required>
+                <select required>
+                  <option value="">Select Doctor</option>
+                  <option value="ravi-sharma">Dr. Ravi Sharma</option>
+                  <option value="sunita-patel">Dr. Sunita Patel</option>
+                  <option value="amit-singh">Dr. Amit Singh</option>
+                  <option value="priya-reddy">Dr. Priya Reddy</option>
+                </select>
+                <textarea rows="4" placeholder="Reason for appointment..."></textarea>
+                <button type="submit" class="submit-btn">Request Appointment</button>
+              </form>
+            </div>
+
+            <div id="contact-form" class="form-content">
+              <h2>Send us a Message</h2>
+              <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea rows="6" placeholder="Your Message" required></textarea>
+                <button type="submit" class="submit-btn">Send Message</button>
+              </form>
+            </div>
           </div>
           <div class="contact-info-container">
             <h2>Contact Information</h2>
@@ -120,7 +171,9 @@
                 allowfullscreen=""
                 loading="lazy"
               ></iframe>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=19.0742,72.831055" target="_blank" class="directions-btn">Get Directions</a>
             </div>
+            <a href="https://wa.me/911234567890" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> Chat with us on WhatsApp</a>
           </div>
         </div>
       </div>
@@ -166,5 +219,47 @@
     </div>
   </footer>
 
+  <div id="confirmation-popup">
+    <h3>Thank you!</h3>
+    <p>Your message has been sent successfully.</p>
+  </div>
+
+  <script>
+    // Tab script
+    const tabLinks = document.querySelectorAll('.tab-link');
+    const formContents = document.querySelectorAll('.form-content');
+
+    tabLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        const tab = link.getAttribute('data-tab');
+
+        tabLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+
+        formContents.forEach(content => {
+          if (content.id === tab) {
+            content.classList.add('active');
+          } else {
+            content.classList.remove('active');
+          }
+        });
+      });
+    });
+
+    // Confirmation popup script
+    const forms = document.querySelectorAll('.contact-form');
+    const popup = document.getElementById('confirmation-popup');
+
+    forms.forEach(form => {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        popup.style.display = 'block';
+        setTimeout(() => {
+          popup.style.display = 'none';
+        }, 3000);
+        form.reset();
+      });
+    });
+  </script>
 </body>
 </html>
